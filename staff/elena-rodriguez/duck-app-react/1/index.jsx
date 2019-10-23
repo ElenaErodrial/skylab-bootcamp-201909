@@ -4,7 +4,8 @@ class App extends Component {
     constructor() {
         super()
 
-        this.state = { view: 'landing', error: undefined }
+        this.state = { view: 'landing', error: undefined 
+    }
 
         this.handleGoToRegister = this.handleGoToRegister.bind(this)
         this.handleGoToLogin = this.handleGoToLogin.bind(this)
@@ -14,6 +15,7 @@ class App extends Component {
         this.handleBackFromLogin = this.handleBackFromLogin.bind(this)
     }
 
+    //función desde el landing, para pasar a la vista de register
     handleGoToRegister() {
         this.setState({ view: 'register' })
     }
@@ -34,6 +36,7 @@ class App extends Component {
         this.setState({ view: 'landing', error: undefined })
     }
 
+    //función desde el landing, para pasar a la vista de login
     handleGoToLogin() {
         this.setState({ view: 'login'})
     }
@@ -50,9 +53,21 @@ class App extends Component {
 
     }
 
-
     handleBackFromLogin() {
         this.setState({ view: 'landing', error: undefined })
+    }
+
+    handleGoToSearch() {
+        this.setState({view: 'search'})
+    }
+
+    handleSearch(query) {
+        searchDucks(query, (error, result) => {
+            if (error) this.setState({ error: error.message })
+            else this.setState = 
+        })
+
+        
     }
 
     render() {
@@ -62,6 +77,8 @@ class App extends Component {
             {view === 'landing' && <Landing onLogin={handleGoToLogin} onRegister={handleGoToRegister} />}
             {view === 'register' && <Register onRegister={handleRegister} onBack={handleBackFromRegister} error={error} />}
             {view === 'login' && <Login onLogin={handleLogin} onBack={handleBackFromLogin} error={error} />}
+            {view === 'search' && <Search onSearch={handleSearch}/>
+     }
         </>
     }
 }

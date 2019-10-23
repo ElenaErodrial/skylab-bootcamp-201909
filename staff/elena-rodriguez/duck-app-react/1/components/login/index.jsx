@@ -20,5 +20,4 @@ function Login({ onLogin, onBack, error }) {
 
         {error && <Feedback message={error} />}
     </section>
-
 }
