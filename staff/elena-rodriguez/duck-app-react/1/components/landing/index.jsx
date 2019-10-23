@@ -12,7 +12,3 @@ function Landing({ onRegister, onLogin }) {
         }}>Login</a>.</p>
     </section>
 }
-
-/*Lo que hace es que te muestra la pantalla de Landing, 
-incluyendo un link para register(con la llamada a función 
-correspondiente, y un link a login incluyendo la llamada a función correspondiente. */

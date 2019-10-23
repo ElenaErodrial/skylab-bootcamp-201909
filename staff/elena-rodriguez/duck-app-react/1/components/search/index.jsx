@@ -1,28 +1,21 @@
-function Search({onSearch, error}) {
-    return <section className="view search _hide">
-        <h1 className="search__title">search</h1>
+function Search({ onSubmit, results, error, onResultsRender }) {
+    return <section className="view search">
+        <h1 className="search__title">Search</h1>
 
-        <form  onSubmit ={event => {
+        <form onSubmit={event => {
+            event.preventDefault()
 
-            event.preventDefault();
-        
-            const { query: {value: query} } = event.target
+            const query = event.target.query.value
 
-            onSearch(query);
-
+            onSubmit(query)
         }}>
-
-
-            <span className ="search__icon">🐣</span>
-            <input className = "search__criteria" type= "text" name = "query" placeholder="criteria" ></input>
-            <button className = "search__submit">🔍</button>
-
+            <span className="search__icon">🐣</span>
+            <input className="search__criteria" type="text" name="query" placeholder="criteria" />
+            <button className="search__submit">🔍</button>
         </form>
 
         {error && <Feedback message={error} />}
 
+        {results && onResultsRender(results)}
     </section>
-
-
-
 }
