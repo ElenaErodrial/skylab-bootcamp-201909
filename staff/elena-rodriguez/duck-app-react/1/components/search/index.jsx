@@ -1,3 +1,4 @@
+//función te crea la section de Search
 function Search({ onSubmit, results, error, onResultsRender }) {
     return <section className="view search">
         <h1 className="search__title">Search</h1>
@@ -5,7 +6,8 @@ function Search({ onSubmit, results, error, onResultsRender }) {
         <form onSubmit={event => {
             event.preventDefault()
 
-            const query = event.target.query.value
+            //const query = event.target.query.value
+            const {query:{value : query}}= event.target
 
             onSubmit(query)
         }}>
@@ -19,3 +21,6 @@ function Search({ onSubmit, results, error, onResultsRender }) {
         {results && onResultsRender(results)}
     </section>
 }
+
+//las últimas líneas son un if, else. Si devuelve error, nos lanza mensaje de error.
+//si hay results, nos ejecuta onResultsRender(que nos imprime o muestra los patos)
