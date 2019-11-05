@@ -1,6 +1,7 @@
 const http = require('http')
-
-http.get(process.argv[2] , (response) => {
+const { argv : [, , url] } = process
+//deconstructing!! lo mismo que hacer process.argv[2]
+http.get(url , (response) => {
     response.setEncoding('utf8')
     let myData = '';
     response.on('data', (piece) => {
