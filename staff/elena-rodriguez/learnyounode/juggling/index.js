@@ -2,11 +2,11 @@ const http = require('http');
 const results = []; // array vacío para guardar el resultado de cada url.
 const urls = process.argv.slice(2); // coge todos menos los dos primeros argumentos.
     // otra opción. Deconstructing. const {argv : [, , ...urls]} = process
-let counter = urls.length; // coge el length de los arguments (sin los dos primeros)
+let counter = urls.length; // coge el length de los arguments (sin los dos primeros que ya le hemos quitado)
 
 const getInfo = (index) => {
     /*esto se va a producir por cada una de las url (async--> si la primera url tiene mucha data, 
-    la segunda url se irá ejecutando, por eso nos lo devolverá desordenado)*/
+    la segunda url se irá ejecutando, por eso nos lo devolverá desordenado, llegará primero posiblemente la que pese menos)*/
     http.get(urls[index], (response) => {
         response.setEncoding('utf8');
         var tempData = ""; // crea un recipiente vacío para los chunks que llegan, donde se almacenarán concatenados. 
@@ -31,6 +31,5 @@ const getInfo = (index) => {
 
 urls.forEach((url, i) => { /*este es el loop que nos permite iterar por los diferentes
      argumentos y ejecutarle la función getInfo*/
-    // this is necessary for order to be maintained with async.
     getInfo(i);
 });
