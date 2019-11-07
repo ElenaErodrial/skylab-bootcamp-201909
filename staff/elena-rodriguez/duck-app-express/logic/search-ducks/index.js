@@ -1,3 +1,6 @@
+const call = require('../../helpers/call')
+const {ContentError} = require('../../utils/errors')
+
 module.exports = function (id, token, query, callback) {
     if (typeof id !== 'string') throw new TypeError(id + ' is not a string')
     if (!id.trim().length) throw new ContentError('id is empty or blank')

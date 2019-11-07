@@ -13,6 +13,8 @@ const searchDucks = require('./logic/search-ducks')
 
 const { argv: [, , port = 8080] } = process
 
+const sessions = {}
+
 const app = express()
 
 app.use(express.static('public'))
@@ -22,7 +24,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/register', (req, res) => {
-    res.send(View({ body: Register({ path: '/' }) }))
+    res.send(View({ body: Register({ path: '/register' }) }))
 })
 app.post('/register', (req, res) => {
     let content = ''
@@ -35,18 +37,19 @@ app.post('/register', (req, res) => {
 
         try {
             registerUser(name, surname, email, password, error => {
-                if (error) res.send('Todo maaaal')
-                else res.redirect('/')
+                if (error) return res.send('Todo maaaal')
+               
+                res.redirect('/')
             })
         } catch (error) {
-            if (error) res.send('Todo va a ir bien, pero no ahora')
+            if (error) res.send('Todo irá bien, pero no ahora')
         }
 
     })
 })
 
 app.get('/login', (req, res) => {
-    res.send(View({ body: Login({ path: '/' }) }))
+    res.send(View({ body: Login({ path: '/login' }) }))
 })
 
 app.post('/login', (req, res) => {
@@ -58,11 +61,11 @@ app.post('/login', (req, res) => {
         const { email, password } = querystring.parse(content)
 
         try {
-            authenticateUser(email, password, (error, data) => {
-                if (error) res.send('Problemilla con la autentificación')
+            authenticateUser(email, password, (error, credentials) => {
+                if (error) return res.send('Problemilla con la autentificación')
 
                 try {
-                    const { id, token } = data
+                    const { id, token } = credentials
 
                     retrieveUser(id, token, (error, user) => {
                         if (error) res.send('no funciona el retrieve')
