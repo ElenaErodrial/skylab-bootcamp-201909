@@ -1,6 +1,6 @@
 const Feedback = require('../feedback')
 
-module.exports = function ({landing}) {
+module.exports = function ({path}) {
     return `<section class="view register">
     <form method="POST" action="/register">
         <h1 class="register__title">Register</h1>
@@ -9,7 +9,7 @@ module.exports = function ({landing}) {
         <input class="register__field" type="email" name="email" placeholder="e-mail" />
         <input class="register__field" type="password" name="password" placeholder="password" />
         <button class="register__submit">📨</button>
-        <a class="register__back" href="${landing}">Go back</a>
+        <a class="register__back" href="${path}">Go back</a>
     </form>
     ${Feedback()}
 </section>`
