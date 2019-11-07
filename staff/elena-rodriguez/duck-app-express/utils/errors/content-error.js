@@ -7,7 +7,3 @@ class ContentError extends Error {
         this.name = ContentError.name
     }
 }
-
-module.exports = {
-    ContentError
-}
