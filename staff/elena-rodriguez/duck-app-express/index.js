@@ -1,5 +1,5 @@
 const express = require('express')
-const { View, Landing, Register, Login, Search } = require('./components')
+const { View, Landing, Register, Login, Search, Results} = require('./components')
 const { registerUser, authenticateUser, retrieveUser, searchDucks } = require('./logic')
 const { bodyParser, cookieParser } = require('./utils/middlewares')
 
@@ -38,12 +38,13 @@ app.get('/login', (req, res) => {
     res.send(View({ body: Login({ path: '/login' }) }))
 })
 
-app.post('/login', bodyParser , (req, res) => {
-    const { body: { email, password}} = req
+app.post('/login', bodyParser, (req, res) => {
+    const { body: { email, password } } = req
 
     try {
-        authenticateUser(email, password, (error, credentials)=> {
-        if (error) return res.send('TODO error handling')
+        authenticateUser(email, password, (error, credentials) => 
+        {
+            if (error) return res.send('TODO error handling')
 
             const { id, token } = credentials
 
@@ -56,7 +57,8 @@ app.post('/login', bodyParser , (req, res) => {
             res.redirect('/search')
         })
     } catch (error) {
-        // TODO handling
+        res.send(View({ body: Login({ path: '/login', error: error.message }) }))
+
     }
 })
 
@@ -85,17 +87,16 @@ app.get('/search', cookieParser, (req, res) => {
 
                         console.log(ducks)
 
-                        res.send(View({ body: `${Search({ path: '/search', query, name, logout: '/logout' })} ` })) // TODO ${Results({items: ducks})}
+                        res.send(View({ body: `${Search({ path: '/search', query, name, logout: '/logout' })} ` })) 
+                        // TODO ${Results({items: ducks})}
                     })
                 } catch (error) {
-                    // TODO handling
-                    debugger
+                    res.send(View({ body: Search({ path: '/search', error: error.message }) }))
                 }
             }
         })
     } catch (error) {
-        // TODO handling
-        res.send(':P')
+        res.send(View({ body: Search({ path: '/search', error: error.message }) }))
     }
 })
 
