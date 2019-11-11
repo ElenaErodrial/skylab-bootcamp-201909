@@ -1,13 +1,13 @@
 const call = require('../../helpers/call')
 const validate = require('../../utils/validate')
 
-module.exports = function (name, surname, email, password) {
+module.exports = function(name, surname, email, password) {
     validate.string(name)
     validate.string.notVoid('name', name)
     validate.string(surname)
     validate.string.notVoid('surname', surname)
     validate.string(email)
-    validate.string.notVoid('email', email)
+    validate.string.notVoid('e-mail', email)
     validate.string(password)
     validate.string.notVoid('password', password)
 

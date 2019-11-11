@@ -1,8 +1,5 @@
-const Feedback = require('../feedback')
-
-module.exports = function (error) {
-    return `<ul class='results'
-${error ? Feedback({ message: error }) : ''}
-</ul>`
-
+module.exports = function ({ items, onItemRender }) {
+    return `<ul class="results">
+        ${items.map(item => onItemRender(item)).join('')}
+    </ul>`
 }

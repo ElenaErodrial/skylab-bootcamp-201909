@@ -1,3 +1,3 @@
-module.export = {
-    ContentError : require('./content-error')
+module.exports = {
+    ContentError: require('./content-error')
 }
