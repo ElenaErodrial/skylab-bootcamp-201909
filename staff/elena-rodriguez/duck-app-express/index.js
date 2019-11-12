@@ -140,8 +140,7 @@ app.post('/fav', cookieParser, bodyParser, (req, res) => {
 
 
 app.get('/ducks/:id', cookieParser, (req, res) => {
-    // TODO control session, etc
-
+  
     try {
         const { cookies: { id }, params: { id: duckId } } = req
         if (!id) return res.redirect('/')
@@ -165,3 +164,4 @@ app.get('/ducks/:id', cookieParser, (req, res) => {
 
 
 app.listen(port, () => console.log(`server running on port ${port}`))
+
