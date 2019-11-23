@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
+}
+
+.landing {
+  height: 100vh;
+  background-image: url("https://image.freepik.com/foto-gratis/partituras-e-instrumentos-musicales_23-2147781844.jpg");
+  background-size: cover;
+  background-position-x: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing__title {
+  color: white;
+  text-align: center;
+  margin: 3%;
+}
+.landing__slogan {
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 2%;
+  padding-bottom: 10%;
+}
+.landing__login {
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding-top: 10%;
+}
+.landing__login::before {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 1px;
+  top: 10px;
+  background-color: #fff;
+  left: 20%;
+}
+.landing__login::after {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 1px;
+  top: 10px;
+  background-color: #fff;
+  right: 20%;
+}
+.landing__register {
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  padding-top: 10%;
+  padding-bottom: 30%;
+}
+
+/*# sourceMappingURL=index.css.map */
