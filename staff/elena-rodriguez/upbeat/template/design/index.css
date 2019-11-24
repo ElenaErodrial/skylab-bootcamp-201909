@@ -1,3 +1,177 @@
+.landing {
+  height: 100vh;
+  background-image: url("https://image.freepik.com/foto-gratis/partituras-e-instrumentos-musicales_23-2147781844.jpg");
+  background-size: cover;
+  background-position-x: center;
+  display: flex;
+  flex-direction: column;
+  font-variant: small-caps;
+  padding-top: 25vh;
+  padding-bottom: 20vh;
+}
+.landing__title {
+  color: white;
+  text-align: center;
+  margin: 0;
+  font-size: 200%;
+  letter-spacing: 2px;
+}
+.landing__slogan {
+  color: white;
+  text-align: center;
+  font-size: 130%;
+  padding-top: 2%;
+  padding-bottom: 6%;
+  letter-spacing: 1.7px;
+}
+.landing__login {
+  margin-top: 8%;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  position: relative;
+  font-size: 25px;
+  margin-bottom: 4vh;
+}
+.landing__login:hover {
+  font-size: 35px;
+  cursor: pointer;
+}
+.landing__register {
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  margin-top: 6vh;
+}
+.landing__register:hover {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.login {
+  background-color: white;
+  height: 82vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  width: 100vw;
+  height: 98%;
+  padding: 2rem;
+  background-color: #fbeed0d4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-form__title {
+  font-size: 30px;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  font-variant: small-caps;
+}
+.login-form__email {
+  font-size: 20px;
+  margin-top: 9%;
+  border: none;
+  border-bottom: 2px solid white;
+  background: url("https://cdn5.dibujos.net/dibujos/pintar/sobre_2.png") no-repeat scroll 5px 5px;
+  background-size: 1.5rem;
+  padding-left: 37px;
+}
+.login-form__email:focus {
+  border: 1px solid #11565dfa;
+}
+.login-form__password {
+  font-size: 20px;
+  margin-top: 9%;
+  border: none;
+  border-bottom: 2px solid white;
+  background: url("http://simpleicon.com/wp-content/uploads/key-4.png") no-repeat scroll 5px 5px;
+  background-size: 1.2rem;
+  padding-left: 30px;
+  margin-bottom: 6%;
+}
+.login-form__password:focus {
+  border: 1px solid #11565dfa;
+}
+.login-form__submit {
+  margin: 2rem;
+  font-size: 18px;
+  border: 1.8px solid #11565dfa;
+  padding: 0.4rem;
+  border-radius: 6%;
+}
+.login-form__submit:hover {
+  cursor: pointer;
+}
+.login-form__register {
+  color: #46291f;
+}
+
+header {
+  background-color: #11565dfa;
+  height: 10vh;
+  text-align: center;
+}
+
+.app-name {
+  padding-top: 4%;
+  font-variant: small-caps;
+  color: #fbeed0d4;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+footer {
+  background-color: #11565dfa;
+  height: 8vh;
+  text-align: center;
+}
+
+.register {
+  background-color: white;
+  height: 82vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-form {
+  width: 100vw;
+  height: 98%;
+  padding: 2rem;
+  background-color: #fbeed0d4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-form__title {
+  font-size: 30px;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  font-variant: small-caps;
+}
+.register-form__intro {
+  font-size: 18px;
+}
+
+.type-group, .type-single {
+  display: none;
+}
+
+#type-groups:checked ~ .type-group {
+  display: block;
+}
+
+#type-single:checked ~ .type-single {
+  display: block;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,58 +182,8 @@ body {
   height: 100vh;
 }
 
-.landing {
-  height: 100vh;
-  background-image: url("https://image.freepik.com/foto-gratis/partituras-e-instrumentos-musicales_23-2147781844.jpg");
-  background-size: cover;
-  background-position-x: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.landing__title {
-  color: white;
-  text-align: center;
-  margin: 3%;
-}
-.landing__slogan {
-  color: white;
-  text-align: center;
-  font-size: 14px;
-  padding-top: 2%;
-  padding-bottom: 10%;
-}
-.landing__login {
-  text-decoration: none;
-  text-align: center;
-  color: white;
-  position: relative;
-  padding-top: 10%;
-}
-.landing__login::before {
-  content: "";
-  position: absolute;
-  width: 15%;
-  height: 1px;
-  top: 10px;
-  background-color: #fff;
-  left: 20%;
-}
-.landing__login::after {
-  content: "";
-  position: absolute;
-  width: 15%;
-  height: 1px;
-  top: 10px;
-  background-color: #fff;
-  right: 20%;
-}
-.landing__register {
-  text-decoration: none;
-  text-align: center;
-  color: white;
-  padding-top: 10%;
-  padding-bottom: 30%;
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */
