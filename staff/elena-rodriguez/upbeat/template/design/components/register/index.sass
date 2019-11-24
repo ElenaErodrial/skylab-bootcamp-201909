@@ -1,31 +1,118 @@
 .register
-    background-color: white
-    height: 82vh
+    background-color: $vanilla
+    height: auto
     display: flex
     align-items: center
     flex-direction: column
     justify-content: center
-
-.register-form
-    width: 100vw
-    height: 98%
-    padding: 2rem
-    background-color: $vanilla
-    display: flex
-    flex-direction: column
-    align-items: center  
 
     &__title
         font-size: 30px
         margin-bottom: 4vh
         margin-top: 4vh
         font-variant: small-caps
-
+    
     &__intro
         font-size: 18px
+
+.line
+    border-bottom: solid 1px $darkgreen
+    width: 86%
+
+.register-form
+    width: 100vw
+    height: 98%
+    padding: 5%
+    display: flex
+    flex-direction: column
+    align-items: center  
+
+    &__email
+        font-size: 20px
+        border: none
+        border-bottom: 2px solid white
+        background: url("https://cdn5.dibujos.net/dibujos/pintar/sobre_2.png") no-repeat scroll 5px 5px
+        background-size: 1.5rem
+        padding-left: 37px
+        margin-bottom: 6%
+
+        &:focus
+            border: 1px solid $darkgreen
+
+    &__password
+        font-size: 20px
+        border: none
+        border-bottom: 2px solid white
+        background: url("http://simpleicon.com/wp-content/uploads/key-4.png") no-repeat scroll 5px 5px
+        background-size: 1.2rem
+        padding-left: 30px
+        margin-bottom: 6%
+
+        &:focus
+            border: 1px solid $darkgreen
+
+    &__username
+        font-size: 20px
+        margin-top: 9%
+        border: none
+        border-bottom: 2px solid white
+        background: url("images/user.png") no-repeat scroll 5px 5px
+        background-size: 1.2rem
+        padding-left: 30px
+        margin-bottom: 6%
+
+        &:focus
+            border: 1px solid $darkgreen
+    &__image
+        width: 57vw
+        margin: 2%
+        font-size: 14px
+        color: $darkgreen
+
+    &__description
+        width: 80vw
+        margin: 7%
+
+    &__links
+        width: 80vw
+        margin: 7%
+
+    &__submit
+        
+        margin: 2rem
+        font-size: 18px
+        border: 1.8px solid $darkgreen
+        padding: .4rem
+        border-radius: 6%
+
+        &:hover
+            cursor: pointer
+    
+    &__goback
+        color: $darkbrown
+
+.items-container
+    background: #7955482b
+    paddin: 10%
+    padding: 10%
+    display: block
+    border-radius: 2%
+    width: 80vw
+
+.checking-container
+    margin: 2%
+    padding: 8%
+.single-container
+    padding-top: 1.2rem
+.group-container
+    padding-top: 1.2rem
 .type-group, .type-single
     display: none
 #type-groups:checked ~ .type-group
     display: block
 #type-single:checked ~ .type-single
     display: block
+.instructions
+    font-size: 18px
+    text-align: center
+    font-weight: bold

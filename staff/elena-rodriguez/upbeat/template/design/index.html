@@ -20,27 +20,38 @@
     <header>
         <p class="app-name">UpBeat</p>
     </header>
-    <section class="login">
+    <section class="login hidden">
+        <h1 class="login__title">Login</h1>
         <form class='login-form'>
-            <h1 class="login-form__title">Login</h1>
             <input class="login-form__email" type="email" name="email" placeholder="e-mail">
             <input class="login-form__password" type="password" name="password" placeholder="password">
             <button class="login-form__submit">Submit</button>
             <a class="login-form__register" href="#">Create an account</a>
         </form>
     </section>
-    <section class="register hidden">
+    <section class="register">
+            <h1 class="register__title">Register</h1>
+            <h2 class="register__intro">New at UpBeat?</h2>
+            <h2 class="register__intro">Create an account, it's easy and free!</h2>
+            <div class="line"></div>
             <form class='register-form'>
-                <h1 class="register-form__title">Register</h1>
-                <h2 class="register-form__intro">New at UpBeat?</h2>
-                <h2 class="register-form__intro">Create an account, it's easy and free!</h2>
+                
                 <input class="register-form__username" type="name" name="name" placeholder="user or artistic name">
                 <input class="register-form__email" type="email" name="email" placeholder="e-mail">
                 <input class="register-form__password" type="password" name="password" placeholder="password">
-                <input class="register-form__image" type="file">Add a profile picture</input>
+                
+                <div class="items-container">
+                <p class="instructions">Add a profile picture</p>
+                <input class="register-form__image" type="file">
+                </div>
+                <div class="checking-container">
                 <p class="instructions">Single musician or a group?</p>
-                <label>Single musician</label><input class="register-form__option" id="type-single" type="radio" name="type" value="single">
-                <input class="register-form__option" id="type-groups" type="radio" name="type" value="group">Group<br>
+                <div class="single-container">
+                <label><input class="register-form__option" id="type-single" type="radio" name="type" value="single">Single musician</label>
+                </div>
+                <div class="group-container">
+                <label><input class="register-form__option" id="type-groups" type="radio" name="type" value="group">Group</label>
+                </div>
                 <div class="type-group">
                         <p class="instructions">Instruments/type</p>
                         <label><input class="register-form__option" type="checkbox" name="instruments[]" value="band">Band</label>
@@ -56,13 +67,13 @@
                         <input class="register-form__option" type="checkbox" name="instruments[]" value="bass">Bass<br>
                         <input class="register-form__option" type="checkbox" name="instruments[]" value="guitar">Guitar<br>
                 </div>
+                </div>
                 <p class="instructions">About you: </p>
-                <input class="register-form__description" type="text" name="description" value="Description"><br>
-                <textarea name="" id="" cols="30" rows="10" placeholder="hola que ase hongda pesado"></textarea>
+                <textarea class="register-form__description" name="" id="" cols="30" rows="10" placeholder="hola que ase hongda pesado"></textarea>
                 <p class="instructions">Add your homepage, links to your videos or other websites: </p>
                 <input class="register-form__links" type="url" name="homepage">
                 <p class="instructions">Your next performances or activities: </p>
-                <input class="register-form__activities" type="text" name="activities" value="Activities"><br>
+                <textarea class="register-form__description" name="" id="" cols="30" rows="10" placeholder="hola que ase hongda pesado"></textarea>
                 <button class="register-form__submit">Submit</button>
                 <a class="register-form__goback" href="#">Go Back</a>
             </form>
