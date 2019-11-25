@@ -220,7 +220,8 @@ footer {
 .register-form__submit:hover {
   cursor: pointer;
 }
-.register-form__goback {
+
+.goback {
   color: #46291f;
 }
 
@@ -352,6 +353,108 @@ footer {
 }
 .item__contdata-position {
   color: #11565dfa;
+}
+
+.profile {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: #ffa11799;
+  padding: 4%;
+}
+.profile__header {
+  margin-bottom: 2%;
+  display: flex;
+  align-items: flex-end;
+}
+.profile__username {
+  margin-right: 1rem;
+}
+.profile__position {
+  margin-bottom: 1%;
+}
+
+.location-container {
+  display: flex;
+}
+
+.image-container {
+  position: relative;
+}
+
+.fa-heart {
+  position: absolute;
+  top: 2rem;
+  background-color: white;
+  right: 2rem;
+  font-size: 24px;
+  padding: 2%;
+  border-radius: 19%;
+}
+
+.fas {
+  margin-right: 2%;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.fa-envelope {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+.fa-comments {
+  color: black;
+  font-size: 24px;
+}
+
+.user-content {
+  padding: 1%;
+}
+.user-content__img {
+  width: 100%;
+  object-fit: cover;
+  height: 50vh;
+  padding: 2%;
+  border-radius: 10%;
+}
+.user-content__subtitle {
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  padding-top: 2%;
+  border-top: 1px solid #46291f;
+}
+.user-content__description {
+  border-top: 1px solid #46291f;
+  padding: 2%;
+  padding-bottom: 5%;
+}
+.user-content__links {
+  margin-bottom: 5%;
+  text-decoration: none;
+  color: #11565dfa;
+}
+.user-content__activities {
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
+
+.go-back {
+  color: #46291f;
+  align-self: center;
+  margin: 0.8rem;
+  font-size: 18px;
+  border: 1.8px solid #46291f;
+  padding: 0.4rem;
+  border-radius: 6%;
 }
 
 * {

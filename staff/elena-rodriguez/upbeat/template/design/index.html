@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/80c46885ed.js"></script>
     <title>Document</title>
 </head>
 
@@ -17,10 +18,10 @@
         <a class="landing__register" href="#">Register</a>
         <a class="landing__login" href="#">Login</a>
     </section>
-    <header>
+     <header>
         <p class="app-name">UpBeat</p>
     </header>
-    <section class="login hidden">
+   <section class="login hidden">
         <h1 class="login__title">Login</h1>
         <form class='login-form'>
             <input class="login-form__email" type="email" name="email" placeholder="e-mail">
@@ -29,7 +30,7 @@
             <a class="login-form__register" href="#">Create an account</a>
         </form>
     </section>
-    <section class="register hidden">
+     <section class="register hidden">
         <h1 class="register__title">Register</h1>
         <h2 class="register__intro">New at UpBeat?</h2>
         <h2 class="register__intro">Create an account, it's easy and free!</h2>
@@ -93,10 +94,10 @@
             <textarea class="register-form__activities" name="" cols="30" rows="10"
                 placeholder="hola que ase hongda pesado"></textarea>
             <button class="register-form__submit">Submit</button>
-            <a class="register-form__goback" href="#">Go Back</a>
+            <a class="goback" href="#">Go Back</a>
         </form>
     </section>
-    <section class="search">
+    <section class="search hidden">
         <div class="options">
             <a class="options__favs" href="#">Favorites</a>
             <a class="options__logout" href="#">Logout</a>
@@ -108,12 +109,13 @@
             <button class="searcher__button">Search</button>
         </form>
     </section>
-    <section class="results-container">
+    <section class="results-container hidden">
         <ul class="results">
             <li class="results__item">
                 <a href="#" class="item">
                     <img class="item__image" src="images/oriol.jpg">
                     <div class="item__contdata">
+                        <i class="far fa-heart"></i>
                         <h2 class="item__contdata-username">Oriol Colomé</h2>
                         <h3 class="item__contdata-position">Guitar</h3>
                         <p class="item__contdata-ubication">Barcelona📍</p>
@@ -141,6 +143,35 @@
                 </a>
             </li>
         </ul>
+    </section>
+    <section class="profile">
+        <div class="profile__header">
+        <h2 class='profile__username'>Oriol Colomé</h2>
+        <p class='profile__position'>Guitar player</p>
+    </div>
+        <div class="location-container">
+        <i class="fas fa-map-marker-alt"></i>
+        <p class="profile__ubication">Barcelona</p>
+        </div>
+        <div class="user-content">
+            <div class="image-container">
+            <img class="user-content__img" src="images/oriol.jpg" />
+            <i class="far fa-heart"></i>
+        </div>
+            <p class="user-content__description">I'm a guitar player from Barcelona. I finished last year my degree on modern
+                music and guitar at Taller de Músics.Currently looking for a combo where to play in and do some jazz!
+            </p>
+            <h2 class='user-content__subtitle'>Some of my work:</h2>
+            <a class="user-content__links" href="http://tallerdemusics.com/festival-talent/viernes-29-de-junio/oriol-colome/" target="_blank"> Taller De Músics</a>
+            <h2 class='user-content__subtitle'>Upcoming performances:</h2>
+            <p class="user-content__activities">Playing on Nota 69, next wednesday 17th November, 18:00h. Free access! </p>
+            <h2 class='user-content__subtitle'>Contact me: </h2>
+            <div class="contact-icons">
+            <a href="mailto:elena.erodrial@gmail.com"><i class="far fa-envelope"></i></a>
+            <button class="chat"><i class="far fa-comments"></i></button>
+            </div>
+        </div>
+        <buttom class="go-back">Go back</buttom>
     </section>
     <footer>
     </footer>
