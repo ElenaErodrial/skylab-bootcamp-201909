@@ -96,6 +96,13 @@
 .login-form__password:focus {
   border: 1px solid #11565dfa;
 }
+.login-form__submit {
+  margin: 2rem;
+  font-size: 18px;
+  border: 1.8px solid #11565dfa;
+  padding: 0.4rem;
+  border-radius: 6%;
+}
 
 header {
   background-color: #11565dfa;
@@ -310,6 +317,43 @@ footer {
   padding: 0.4rem;
 }
 
+.results {
+  background: #fbeed0d4;
+  margin: 0;
+  display: flex;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-decoration: none;
+  background-color: #ffffff85;
+  border-radius: 1rem;
+  margin: 2%;
+  width: 93vw;
+  display: flex;
+  flex-flow: row;
+}
+.item__image {
+  width: 30%;
+  object-fit: cover;
+  height: 21vh;
+  padding: 2%;
+  border-radius: 10%;
+}
+.item__contdata {
+  padding: 2%;
+}
+.item__contdata-username {
+  color: #46291f;
+}
+.item__contdata-position {
+  color: #11565dfa;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -318,6 +362,7 @@ footer {
 body {
   font-family: "Quicksand", sans-serif;
   height: 100vh;
+  width: 100vw;
 }
 
 .hidden {

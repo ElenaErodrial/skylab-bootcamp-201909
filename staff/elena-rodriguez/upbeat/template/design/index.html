@@ -20,7 +20,7 @@
     <header>
         <p class="app-name">UpBeat</p>
     </header>
-    <section class="login">
+    <section class="login hidden">
         <h1 class="login__title">Login</h1>
         <form class='login-form'>
             <input class="login-form__email" type="email" name="email" placeholder="e-mail">
@@ -96,7 +96,7 @@
             <a class="register-form__goback" href="#">Go Back</a>
         </form>
     </section>
-    <section class="search hidden">
+    <section class="search">
         <div class="options">
             <a class="options__favs" href="#">Favorites</a>
             <a class="options__logout" href="#">Logout</a>
@@ -108,14 +108,15 @@
             <button class="searcher__button">Search</button>
         </form>
     </section>
-    <section class=results-container hidden>
+    <section class="results-container">
         <ul class="results">
             <li class="results__item">
                 <a href="#" class="item">
-                    <img class="item__image" src="images/patri.jpg">
+                    <img class="item__image" src="images/oriol.jpg">
                     <div class="item__contdata">
-                        <h5 class="item__contdata-username">Patricia Ventura</h5>
-                        <h2 class="item__contdata-position">Piano</h2>
+                        <h2 class="item__contdata-username">Oriol Colomé</h2>
+                        <h3 class="item__contdata-position">Guitar</h3>
+                        <p class="item__contdata-ubication">Barcelona📍</p>
                     </div>
                 </a>
             </li>
@@ -123,8 +124,19 @@
                 <a href="#" class="item">
                     <img class="item__image" src="images/patri.jpg">
                     <div class="item__contdata">
-                        <h5 class="item__contdata-username">Patricia Ventura</h5>
-                        <h2 class="item__contdata-position">Piano</h2>
+                        <h2 class="item__contdata-username">Patricia Ventura</h2>
+                        <h3 class="item__contdata-position">Piano</h3>
+                        <p class="item__contdata-ubication">Barcelona📍</p>
+                    </div>
+                </a>
+            </li>
+            <li class="results__item">
+                <a href="#" class="item">
+                    <img class="item__image" src="images/lesmuses.png">
+                    <div class="item__contdata">
+                        <h2 class="item__contdata-username">Les Muses Chorale</h2>
+                        <h3 class="item__contdata-position">Choir</h3>
+                        <p class="item__contdata-ubication">Montreal📍</p>
                     </div>
                 </a>
             </li>

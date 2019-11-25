@@ -43,3 +43,39 @@
         border-radius: 6%
         height: fit-content
         padding: 0.4rem
+
+.results
+    background: $vanilla
+    margin: 0
+    display: flex
+    padding: 0
+    list-style: none
+    display: flex
+    flex-direction: column
+
+.item
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    text-decoration: none
+    background-color: #ffffff85
+    border-radius: 1rem
+    margin: 2%
+    width: 93vw
+    display: flex
+    flex-flow: row
+    
+
+    &__image
+        width: 30%
+        object-fit: cover
+        height: 21vh
+        padding: 2%
+        border-radius: 10%
+
+    &__contdata
+        padding: 2%
+
+    &__contdata-username
+        color: $darkbrown
+
+    &__contdata-position
+        color: $darkgreen
