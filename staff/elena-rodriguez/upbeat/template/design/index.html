@@ -20,7 +20,7 @@
     <header>
         <p class="app-name">UpBeat</p>
     </header>
-    <section class="login hidden">
+    <section class="login">
         <h1 class="login__title">Login</h1>
         <form class='login-form'>
             <input class="login-form__email" type="email" name="email" placeholder="e-mail">
@@ -29,54 +29,106 @@
             <a class="login-form__register" href="#">Create an account</a>
         </form>
     </section>
-    <section class="register">
-            <h1 class="register__title">Register</h1>
-            <h2 class="register__intro">New at UpBeat?</h2>
-            <h2 class="register__intro">Create an account, it's easy and free!</h2>
-            <div class="line"></div>
-            <form class='register-form'>
-                
-                <input class="register-form__username" type="name" name="name" placeholder="user or artistic name">
-                <input class="register-form__email" type="email" name="email" placeholder="e-mail">
-                <input class="register-form__password" type="password" name="password" placeholder="password">
-                
-                <div class="items-container">
+    <section class="register hidden">
+        <h1 class="register__title">Register</h1>
+        <h2 class="register__intro">New at UpBeat?</h2>
+        <h2 class="register__intro">Create an account, it's easy and free!</h2>
+        <div class="line"></div>
+        <form class='register-form'>
+
+            <input class="register-form__username" type="name" name="name" placeholder="user or artistic name">
+            <input class="register-form__email" type="email" name="email" placeholder="e-mail">
+            <input class="register-form__password" type="password" name="password" placeholder="password">
+
+            <div class="items-container">
                 <p class="instructions">Add a profile picture</p>
                 <input class="register-form__image" type="file">
-                </div>
-                <div class="checking-container">
+            </div>
+            <div class="checking-container">
                 <p class="instructions">Single musician or a group?</p>
-                <div class="single-container">
-                <label><input class="register-form__option" id="type-single" type="radio" name="type" value="single">Single musician</label>
-                </div>
-                <div class="group-container">
-                <label><input class="register-form__option" id="type-groups" type="radio" name="type" value="group">Group</label>
-                </div>
+
+                <label>Single musician</label><input class="register-form__option" id="type-single" type="radio"
+                    name="type" value="single">
+                <br>
+                <label>Group</label>
+                <input class="register-form__option" id="type-groups" type="radio" name="type" value="group">
+
                 <div class="type-group">
-                        <p class="instructions">Instruments/type</p>
-                        <label><input class="register-form__option" type="checkbox" name="instruments[]" value="band">Band</label>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="ensemble">Classic Ensemble<br>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="choir">Choir<br>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="orchestra">Orchestra<br>
+                    <p class="instructions">Type of group</p>
+                    <div class="checkbox-container">
+                        <label><input class="register-form__option" type="checkbox" name="type"
+                                value="band">Band</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="ensemble">Classic
+                            Ensemble</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="choir">Choir</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="orchestra">Orchestra</label>
+                    </div>
                 </div>
                 <div class="type-single">
-                        <p class="instructions">Instruments/type</p>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="drums">Drums<br>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="violin">Violin<br>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="piano">Piano<br>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="bass">Bass<br>
-                        <input class="register-form__option" type="checkbox" name="instruments[]" value="guitar">Guitar<br>
+                    <p class="instructions">Instruments</p>
+                    <div class="checkbox-container">
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="drums">Drums</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="drums">Violin</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="drums">Piano</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="drums">Guitar</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="drums">Bass</label>
+                    </div>
                 </div>
-                </div>
-                <p class="instructions">About you: </p>
-                <textarea class="register-form__description" name="" id="" cols="30" rows="10" placeholder="hola que ase hongda pesado"></textarea>
-                <p class="instructions">Add your homepage, links to your videos or other websites: </p>
-                <input class="register-form__links" type="url" name="homepage">
-                <p class="instructions">Your next performances or activities: </p>
-                <textarea class="register-form__description" name="" id="" cols="30" rows="10" placeholder="hola que ase hongda pesado"></textarea>
-                <button class="register-form__submit">Submit</button>
-                <a class="register-form__goback" href="#">Go Back</a>
-            </form>
+            </div>
+            <p class="instructions">About you: </p>
+            <textarea class="register-form__description" name="" cols="30" rows="10"
+                placeholder="hola que ase hongda pesado"></textarea>
+            <p class="instructions">Add your homepage, links to your videos or other websites: </p>
+            <input class="register-form__links" type="url" name="homepage">
+            <button class="register-form__add-links">Add more</button>
+            <p class="instructions">Your next performances or activities: </p>
+            <textarea class="register-form__activities" name="" cols="30" rows="10"
+                placeholder="hola que ase hongda pesado"></textarea>
+            <button class="register-form__submit">Submit</button>
+            <a class="register-form__goback" href="#">Go Back</a>
+        </form>
+    </section>
+    <section class="search hidden">
+        <div class="options">
+            <a class="options__favs" href="#">Favorites</a>
+            <a class="options__logout" href="#">Logout</a>
+            <a class="options__profile" href="#">My profile</a>
+        </div>
+        <p class='greeting'>Hello, {user}!</p>
+        <form class="searcher">
+            <input type="text" class='searcher__bar' name="city" placeholder="what are you looking for?" />
+            <button class="searcher__button">Search</button>
+        </form>
+    </section>
+    <section class=results-container hidden>
+        <ul class="results">
+            <li class="results__item">
+                <a href="#" class="item">
+                    <img class="item__image" src="images/patri.jpg">
+                    <div class="item__contdata">
+                        <h5 class="item__contdata-username">Patricia Ventura</h5>
+                        <h2 class="item__contdata-position">Piano</h2>
+                    </div>
+                </a>
+            </li>
+            <li class="results__item">
+                <a href="#" class="item">
+                    <img class="item__image" src="images/patri.jpg">
+                    <div class="item__contdata">
+                        <h5 class="item__contdata-username">Patricia Ventura</h5>
+                        <h2 class="item__contdata-position">Piano</h2>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </section>
     <footer>
     </footer>

@@ -1,8 +1,7 @@
 @import ../../variables
-    
 .login
     background-color: $vanilla
-    height: 82vh
+    height: auto
     display: flex
     align-items: center
     flex-direction: column
@@ -16,27 +15,26 @@
 
 .login-form
     width: 100vw
-    height: 98%
-    padding: 2rem
+    height: 69vh
+    padding: 5%
     display: flex
     flex-direction: column
-    align-items: center
-    
+    align-items: center  
+
     &__email
         font-size: 20px
-        margin-top: 9%
         border: none
         border-bottom: 2px solid white
         background: url("https://cdn5.dibujos.net/dibujos/pintar/sobre_2.png") no-repeat scroll 5px 5px
         background-size: 1.5rem
         padding-left: 37px
+        margin-bottom: 6%
 
         &:focus
             border: 1px solid $darkgreen
 
     &__password
         font-size: 20px
-        margin-top: 9%
         border: none
         border-bottom: 2px solid white
         background: url("http://simpleicon.com/wp-content/uploads/key-4.png") no-repeat scroll 5px 5px
@@ -46,22 +44,3 @@
 
         &:focus
             border: 1px solid $darkgreen
-
-    &__submit
-        
-        margin: 2rem
-        font-size: 18px
-        border: 1.8px solid $darkgreen
-        padding: .4rem
-        border-radius: 6%
-
-        &:hover
-            cursor: pointer
-
-    &__register
-        color: $darkbrown
-
-
-
-
-

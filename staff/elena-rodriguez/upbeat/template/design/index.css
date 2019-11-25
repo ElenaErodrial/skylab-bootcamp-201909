@@ -51,7 +51,7 @@
 
 .login {
   background-color: #fbeed0d4;
-  height: 82vh;
+  height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -66,27 +66,26 @@
 
 .login-form {
   width: 100vw;
-  height: 98%;
-  padding: 2rem;
+  height: 69vh;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .login-form__email {
   font-size: 20px;
-  margin-top: 9%;
   border: none;
   border-bottom: 2px solid white;
   background: url("https://cdn5.dibujos.net/dibujos/pintar/sobre_2.png") no-repeat scroll 5px 5px;
   background-size: 1.5rem;
   padding-left: 37px;
+  margin-bottom: 6%;
 }
 .login-form__email:focus {
   border: 1px solid #11565dfa;
 }
 .login-form__password {
   font-size: 20px;
-  margin-top: 9%;
   border: none;
   border-bottom: 2px solid white;
   background: url("http://simpleicon.com/wp-content/uploads/key-4.png") no-repeat scroll 5px 5px;
@@ -96,19 +95,6 @@
 }
 .login-form__password:focus {
   border: 1px solid #11565dfa;
-}
-.login-form__submit {
-  margin: 2rem;
-  font-size: 18px;
-  border: 1.8px solid #11565dfa;
-  padding: 0.4rem;
-  border-radius: 6%;
-}
-.login-form__submit:hover {
-  cursor: pointer;
-}
-.login-form__register {
-  color: #46291f;
 }
 
 header {
@@ -209,6 +195,10 @@ footer {
   width: 80vw;
   margin: 7%;
 }
+.register-form__activities {
+  width: 80vw;
+  margin: 7%;
+}
 .register-form__links {
   width: 80vw;
   margin: 7%;
@@ -234,6 +224,12 @@ footer {
   display: block;
   border-radius: 2%;
   width: 80vw;
+}
+
+.checkbox-container {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
 }
 
 .checking-container {
@@ -265,6 +261,53 @@ footer {
   font-size: 18px;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.search {
+  background-color: #fbeed0d4;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.options {
+  padding: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.greeting {
+  font-size: 20px;
+  text-align: center;
+}
+
+.searcher {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 80vw;
+  border-radius: 6px;
+  border-style: none;
+  margin: 0 1rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+}
+.searcher__bar {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 16rem;
+  border-radius: 6px;
+  border-style: none;
+  margin: 0 1rem;
+  margin-bottom: 0.7rem;
+}
+.searcher__button {
+  font-size: 15px;
+  border: 1.8px solid #11565dfa;
+  border-radius: 6%;
+  height: fit-content;
+  padding: 0.4rem;
 }
 
 * {
