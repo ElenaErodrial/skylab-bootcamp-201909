@@ -337,6 +337,7 @@ footer {
   width: 93vw;
   display: flex;
   flex-flow: row;
+  position: relative;
 }
 .item__image {
   width: 30%;
@@ -353,6 +354,15 @@ footer {
 }
 .item__contdata-position {
   color: #11565dfa;
+}
+
+.fa-heart {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  font-size: 24px;
+  padding: 2%;
+  border-radius: 19%;
 }
 
 .profile {
@@ -386,7 +396,7 @@ footer {
 .fa-heart {
   position: absolute;
   top: 2rem;
-  background-color: white;
+  background-color: #ffffff85;
   right: 2rem;
   font-size: 24px;
   padding: 2%;
