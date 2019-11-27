@@ -4,7 +4,7 @@ module.exports = {
     message: require('./message'),
     links: require('./links'),
     solo: require('./solo'),
-    groups: require('/groups')
+    groups: require('./groups')
 
     
 }
