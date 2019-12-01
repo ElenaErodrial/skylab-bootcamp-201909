@@ -18,10 +18,10 @@
         <a class="landing__register" href="#">Register</a>
         <a class="landing__login" href="#">Login</a>
     </section>
-     <header>
+    <header>
         <p class="app-name">UpBeat</p>
     </header>
-   <section class="login">
+    <section class="login hidden">
         <h1 class="login__title">Login</h1>
         <form class='login-form'>
             <input class="login-form__email" type="email" name="email" placeholder="e-mail">
@@ -30,7 +30,7 @@
             <a class="login-form__register" href="#">Create an account</a>
         </form>
     </section>
-     <section class="register">
+    <section class="register">
         <h1 class="register__title">Register</h1>
         <h2 class="register__intro">New at UpBeat?</h2>
         <h2 class="register__intro">Create an account, it's easy and free!</h2>
@@ -41,10 +41,7 @@
             <input class="register-form__email" type="email" name="email" placeholder="e-mail">
             <input class="register-form__password" type="password" name="password" placeholder="password">
 
-            <div class="items-container">
-                <p class="instructions">Add a profile picture</p>
-                <input class="register-form__image" type="file">
-            </div>
+            
             <div class="checking-container">
                 <p class="instructions">Single musician or a group?</p>
 
@@ -54,49 +51,68 @@
                 <label>Group</label>
                 <input class="register-form__option" id="type-groups" type="radio" name="type" value="group">
 
-                <div class="type-group">
+                <div class="type-groups">
                     <p class="instructions">Type of group</p>
                     <div class="checkbox-container">
-                        <label><input class="register-form__option" type="checkbox" name="type"
-                                value="band">Band</label>
-                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
-                                value="ensemble">Classic
-                            Ensemble</label>
-                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
-                                value="choir">Choir</label>
-                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
-                                value="orchestra">Orchestra</label>
+                        <label>Rock Band</label><input class="register-form__option" id="type-groups" type="radio"
+                            name="type" value="group">
+                        <label>Classic ensemble</label><input class="register-form__option" id="type-groups"
+                            type="radio" name="type" value="group">
+                        <label>Choir</label><input class="register-form__option" id="type-groups" type="radio"
+                            name="type" value="group">
+                        <label>Orchestra</label><input class="register-form__option" id="type-groups" type="radio"
+                            name="type" value="group">
                     </div>
                 </div>
+
                 <div class="type-single">
                     <p class="instructions">Instruments</p>
                     <div class="checkbox-container">
                         <label><input class="register-form__option" type="checkbox" name="instruments[]"
+                                value="oboe">Oboe</label>
+                        <label><input class="register-form__option" type="checkbox" name="instruments[]"
                                 value="drums">Drums</label>
                         <label><input class="register-form__option" type="checkbox" name="instruments[]"
-                                value="drums">Violin</label>
+                                value="violin">Violin</label>
                         <label><input class="register-form__option" type="checkbox" name="instruments[]"
-                                value="drums">Piano</label>
+                                value="piano">Piano</label>
                         <label><input class="register-form__option" type="checkbox" name="instruments[]"
-                                value="drums">Guitar</label>
+                                value="guitar">Guitar</label>
                         <label><input class="register-form__option" type="checkbox" name="instruments[]"
-                                value="drums">Bass</label>
+                                value="bass">Bass</label>
                     </div>
                 </div>
             </div>
-            <p class="instructions">About you: </p>
-            <textarea class="register-form__description" name="" cols="30" rows="10"
-                placeholder="hola que ase hongda pesado"></textarea>
-            <p class="instructions">Add your homepage, links to your videos or other websites: </p>
-            <input class="register-form__links" type="url" name="homepage">
-            <button class="register-form__add-links">Add more</button>
-            <p class="instructions">Your next performances or activities: </p>
-            <textarea class="register-form__activities" name="" cols="30" rows="10"
-                placeholder="hola que ase hongda pesado"></textarea>
             <button class="register-form__submit">Submit</button>
-            <a class="goback" href="#">Go Back</a>
         </form>
     </section>
+    <section class="edit hidden">
+            <h1 class="edit__title">Edit your profile</h1>
+            <h2 class="edit__intro">Tell us something more about you: </h2>
+            <div class="line"></div>
+        <form class='edit-form'>
+
+                <div class="items-container">
+                        <p class="instructions">Add a profile picture</p>
+                        <input class="edit-form__image" type="file">
+                    </div>
+
+            <p class="instructions">About you: </p>
+            <textarea class="edit-form__description" name="" cols="30" rows="10"
+                placeholder="write something about you"></textarea>
+            <p class="instructions">Add your homepage, links to your videos or other websites: </p>
+            <input class="edit-form__links" type="url" name="homepage">
+            <button class="edit-form__add-links">Add more</button>
+            <p class="instructions">Your next performances or activities: </p>
+            <textarea class="edit-form__activities" name="" cols="30" rows="10"
+                placeholder="tell people about your next activites/performances"></textarea>
+            <button class="edit-form__submit">Submit</button>
+
+        </form>
+        <a class="goback" href="#">Go Back</a>
+
+    </section>
+
     <section class="search">
         <div class="options">
             <a class="options__favs" href="#">Favorites</a>
@@ -109,7 +125,7 @@
             <button class="searcher__button">Search</button>
         </form>
     </section>
-    <section class="results-container">
+    <section class="results-container hidden">
         <ul class="results">
             <li class="results__item">
                 <a href="#" class="item">
@@ -148,34 +164,43 @@
     </section>
     <section class="profile">
         <div class="profile__header">
-        <h2 class='profile__username'>Oriol Colomé</h2>
-        <p class='profile__position'>Guitar player</p>
-    </div>
+            <h2 class='profile__username'>Oriol Colomé</h2>
+            <p class='profile__position'>Guitar player</p>
+        </div>
         <div class="location-container">
-        <i class="fas fa-map-marker-alt"></i>
-        <p class="profile__ubication">Barcelona</p>
+            <i class="fas fa-map-marker-alt"></i>
+            <p class="profile__ubication">Barcelona</p>
         </div>
         <div class="user-content">
             <div class="image-container">
-            <img class="user-content__img" src="images/oriol.jpg" />
-            <i class="far fa-heart"></i>
-        </div>
-            <p class="user-content__description">I'm a guitar player from Barcelona. I finished last year my degree on modern
+                <img class="user-content__img" src="images/oriol.jpg" />
+                <a href="#"><i class="far fa-heart"></i></a>
+            </div>
+            <p class="user-content__description">I'm a guitar player from Barcelona. I finished last year my degree on
+                modern
                 music and guitar at Taller de Músics.Currently looking for a combo where to play in and do some jazz!
             </p>
             <h2 class='user-content__subtitle'>Some of my work:</h2>
-            <a class="user-content__links" href="http://tallerdemusics.com/festival-talent/viernes-29-de-junio/oriol-colome/" target="_blank"> Taller De Músics</a>
+            <a class="user-content__links"
+                href="http://tallerdemusics.com/festival-talent/viernes-29-de-junio/oriol-colome/" target="_blank">
+                Taller De Músics</a>
             <h2 class='user-content__subtitle'>Upcoming performances:</h2>
-            <p class="user-content__activities">Playing on Nota 69, next wednesday 17th November, 18:00h. Free access! </p>
+            <p class="user-content__activities">Playing on Nota 69, next wednesday 17th November, 18:00h. Free access!
+            </p>
             <h2 class='user-content__subtitle'>Contact me: </h2>
             <div class="contact-icons">
-            <a href="mailto:elena.erodrial@gmail.com"><i class="far fa-envelope"></i></a>
-            <button class="chat"><i class="far fa-comments"></i></button>
+                <a href="mailto:elena.erodrial@gmail.com"><i class="far fa-envelope"></i></a>
+                <button class="chat"><i class="far fa-comments"></i></button>
             </div>
         </div>
         <buttom class="go-back">Go back</buttom>
     </section>
     <footer>
+            <button class="chats"><i class="far fa-comments"></i></button>
+            <button class="account"><i class="far fa-user"></i></button>
+            <button class="edit"><i class="fas fa-cog"></i></button>
+            <button class="favs"><i class="fas fa-heart"></i></button>
+            <button class="logout"><i class="fas fa-sign-out-alt"></i></button>
     </footer>
 </body>
 

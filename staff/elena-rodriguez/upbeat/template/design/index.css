@@ -124,6 +124,43 @@ footer {
   text-align: center;
 }
 
+.far {
+  margin-right: 2%;
+}
+
+.fa-comments {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+.fa-users {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+.fas {
+  margin-right: 2%;
+}
+
+.fa-cog {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.fa-heart {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+}
+
+.fa-sign-out-alt {
+  color: black;
+  font-size: 24px;
+}
+
 .register {
   background-color: #fbeed0d4;
   height: auto;
@@ -253,11 +290,11 @@ footer {
   padding-top: 1.2rem;
 }
 
-.type-group, .type-single {
+.type-groups, .type-single {
   display: none;
 }
 
-#type-groups:checked ~ .type-group {
+#type-groups:checked ~ .type-groups {
   display: block;
 }
 
@@ -465,6 +502,55 @@ footer {
   border: 1.8px solid #46291f;
   padding: 0.4rem;
   border-radius: 6%;
+}
+
+.edit {
+  background-color: #fbeed0d4;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.edit__title {
+  font-size: 30px;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+  font-variant: small-caps;
+}
+.edit__intro {
+  font-size: 18px;
+}
+
+.edit-form {
+  width: 100vw;
+  height: 98%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.edit-form__description {
+  width: 80vw;
+  margin: 7%;
+}
+.edit-form__activities {
+  width: 80vw;
+  margin: 7%;
+}
+.edit-form__links {
+  width: 80vw;
+  margin: 7%;
+}
+.edit-form__submit {
+  margin: 2rem;
+  font-size: 18px;
+  border: 1.8px solid #11565dfa;
+  padding: 0.4rem;
+  border-radius: 6%;
+}
+.edit-form__submit:hover {
+  cursor: pointer;
 }
 
 * {
