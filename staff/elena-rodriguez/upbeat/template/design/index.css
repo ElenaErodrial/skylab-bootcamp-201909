@@ -122,6 +122,12 @@ footer {
   background-color: #11565dfa;
   height: 8vh;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .far {
@@ -130,34 +136,39 @@ footer {
 
 .fa-comments {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 24px;
 }
 
-.fa-users {
-  text-decoration: none;
-  color: black;
+.fa-user {
+  color: white;
   font-size: 24px;
+  text-decoration: none;
 }
 
 .fas {
   margin-right: 2%;
 }
 
-.fa-cog {
+.fa-comment-dots {
   text-decoration: none;
-  display: flex;
-  justify-content: center;
+  color: white;
+  font-size: 24px;
 }
 
-.fa-heart {
+.fa-hand-holding-heart {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 24px;
 }
 
 .fa-sign-out-alt {
-  color: black;
+  color: white;
+  font-size: 24px;
+}
+
+.fa-user-cog {
+  color: white;
   font-size: 24px;
 }
 
@@ -434,6 +445,7 @@ footer {
   position: absolute;
   top: 2rem;
   background-color: #ffffff85;
+  color: floralwhite;
   right: 2rem;
   font-size: 24px;
   padding: 2%;
