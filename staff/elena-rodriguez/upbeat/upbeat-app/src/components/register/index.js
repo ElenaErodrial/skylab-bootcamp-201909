@@ -1,8 +1,11 @@
 import React from 'react'
-// import './index.sass'
+import Holi from '../holi'
+//import './index.sass'
 
 export default function({ onRegister, onBack, error }) {
-    return <section className="register">
+    return <>
+    <Holi />
+    <section className="register">
 
         <h1 className="register__title">Register</h1>
         <h2 className="register__intro">New at UpBeat?</h2>
@@ -23,22 +26,23 @@ export default function({ onRegister, onBack, error }) {
         <div className="checking-container">
                 <p className="instructions">Single musician or a group?</p>
 
-                <label>Single musician</label><input className="register-form__option" id="type-single" type="radio"
-                    name="type" value="single"/>
+                <label>Single musician</label>
+                <input className="register-form__option" id="type-single" type="radio"
+                    name="rol" value="solo"/>
                 <br/>
                 <label>Group</label>
-                <input className="register-form__option" id="type-groups" type="radio" name="type" value="group"/>
+                <input className="register-form__option" id="type-groups" type="radio" name="rol" value="groups"/>
 
                 <div className="type-groups">
                     <p className="instructions">Type of group</p>
                     <div className="checkbox-container">
-                        <label>Rock Band</label><input className="register-form__option" id="type-groups" type="radio"
+                        <label>Rock Band</label><input className="register-form__option" type="radio"
                             name="type" value="group" />
-                        <label>Classic ensemble</label><input className="register-form__option" id="type-groups"
+                        <label>Classic ensemble</label><input className="register-form__option"
                             type="radio" name="type" value="group"/>
-                        <label>Choir</label><input className="register-form__option" id="type-groups" type="radio"
+                        <label>Choir</label><input className="register-form__option" type="radio"
                             name="type" value="group"/>
-                        <label>Orchestra</label><input className="register-form__option" id="type-groups" type="radio"
+                        <label>Orchestra</label><input className="register-form__option" type="radio"
                             name="type" value="group"/>
                     </div>
                 </div>
@@ -66,6 +70,7 @@ export default function({ onRegister, onBack, error }) {
           
            </form>
     </section>
+    </>
 }
 
 

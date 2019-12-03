@@ -4,6 +4,7 @@ import Landing from '../Landing'
 import Register from '../Register'
 import Login from '../Login'
 import Holi from '../holi'
+import Header from '../Header'
 // import Board from '../Board'
 import { Route, withRouter, Redirect } from 'react-router-dom'
 import { authenticateUser} from '../../logic/'
@@ -74,8 +75,8 @@ export default withRouter(function ({ history }) {
     return <>
         <Route exact path="/" render={() => token ? <Redirect to="/holi" /> : <Landing onRegister={handleGoToRegister} onLogin={handleGoToLogin} />} />
         <Route path="/register" render={() => token ? <Redirect to="/holi" /> : <Register onRegister={handleRegister} onBack={handleGoBack} />} />
-        <Route path="/login" render={() => token ? <Redirect to="/holi" /> : <Login onLogin={handleLogin} onBack={handleGoBack} />} />
-        <Route path="/holi" render={() => <Holi  />} />           
+        <Route path="/login" render={() => token ? <Redirect to="/holi" /> : <><Header/><Login onLogin={handleLogin} onBack={handleGoBack} /> </>} />
+        <Route path="/holi" render={() => <Holi  />} />    
        
     </>
 })
