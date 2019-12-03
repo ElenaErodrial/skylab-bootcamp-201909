@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.sass'
 
 export default function({ onRegister, onLogin }) {
     return <section className="landing">
