@@ -1,7 +1,6 @@
 import React from 'react'
-import Holi from '../holi'
 import { Link } from 'react-router-dom'
-//import './index.sass'
+
 
 export default function ({ onRegister, error }) {
     return <>
