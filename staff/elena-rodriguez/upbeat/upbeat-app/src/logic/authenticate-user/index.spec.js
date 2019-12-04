@@ -3,21 +3,27 @@ const authenticateUser = require('.')
 const { random } = Math
 const { errors: { ContentError, CredentialsError } } = require('upbeat-util')
 const { database, models: { User } } = require('upbeat-data')
+const bcrypt = require('bcryptjs')
 
 describe('logic - authenticate user', () => {
     beforeAll(() => database.connect(TEST_DB_URL))
 
-    let id, username, email, password
+    let id, username, email, password, rol, rols, latitude, longitude, hash
+    rols = ['solo','groups']
 
     beforeEach(async () => {
         username = `username-${random()}`
         email = `email-${random()}@mail.com`
         password = `password-${random()}`
+        hash = await bcrypt.hash(password , 10)
+        rol = rols[Math.floor(Math.random()*rols.length)]
+        longitude = random()
+        latitude = random()
+    
 
         await User.deleteMany()
 
-        const user = await User.create({ username, email, password })
-
+        const user = await User.create({ username, email, password, rol, location: {coordinates: [latitude, longitude ]}, password: hash  })
         id = user.id
     })
 
@@ -45,10 +51,10 @@ describe('logic - authenticate user', () => {
                 throw new Error('should not reach this point')
             } catch (error) {
                 expect(error).toBeDefined()
-                expect(error).toBeInstanceOf(CredentialsError)
+                expect(error).toBeInstanceOf(ContentError)
 
                 const { message } = error
-                expect(message).toBe(`wrong credentials`)
+                expect(message).toBe(`wrong is not an e-mail`)
             }
         })
 
@@ -69,7 +75,7 @@ describe('logic - authenticate user', () => {
         })
     })
 
-    it('should fail on incorrect name, surname, email, password, or expression type and content', () => {
+    it('should fail on incorrect email, password, or expression type and content', () => {
         expect(() => authenticateUser(1)).toThrow(TypeError, '1 is not a string')
         expect(() => authenticateUser(true)).toThrow(TypeError, 'true is not a string')
         expect(() => authenticateUser([])).toThrow(TypeError, ' is not a string')
@@ -91,7 +97,7 @@ describe('logic - authenticate user', () => {
         expect(() => authenticateUser(email, ' \t\r')).toThrow(ContentError, 'password is empty or blank')
     })
 
-    // TODO other cases
+   
 
     afterAll(() => User.deleteMany().then(database.disconnect))
 })

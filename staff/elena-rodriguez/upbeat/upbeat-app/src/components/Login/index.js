@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function({onLogin, onBack, error}) {
+export default function({onLogin, error}) {
 return <section className="login">
 <h1 className="login__title">Login</h1>
 
@@ -15,7 +16,9 @@ return <section className="login">
     <input className="login-form__email" type="email" name="email" placeholder="e-mail"/>
     <input className="login-form__password" type="password" name="password" placeholder="password"/>
     <button className="login-form__submit">Submit</button>
-    <a className="login-form__register" href="#">Create an account</a>
+    <Link className="login-form__register" to="/register">Create an account</Link>
+
+   
 </form>
 
 </section>

@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function() {
     return <header>
-        <p class="app-name">UpBeat</p>
+        <p className="app-name">UpBeat</p>
         </header>
         
 }

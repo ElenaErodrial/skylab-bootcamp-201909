@@ -7,9 +7,8 @@ import Holi from '../holi'
 import Header from '../Header'
 // import Board from '../Board'
 import { Route, withRouter, Redirect } from 'react-router-dom'
-import { authenticateUser} from '../../logic/'
+import { authenticateUser, registerUser} from '../../logic/'
 // import { authenticateUser, registerUser, retrieveUser, listTasks, modifyTask, createTask } from '../../logic'
-// import Hello from '../Hello'
 
 export default withRouter(function ({ history }) {
     const [name, setName] = useState()
@@ -31,13 +30,9 @@ export default withRouter(function ({ history }) {
 
    
 
-    function handleGoToRegister() { history.push('/register') }
-
-    function handleGoToLogin() { history.push('/login') }
-
-    async function handleRegister(username, email, password, rol) {
+    async function handleRegister(username, email, password, rol, instruments, groups, latitude, longitude) {
         try {
-            // await registerUser(username, email, password)
+            await registerUser(username, email, password, rol, instruments, groups, latitude, longitude)
 
             history.push('/login')
         } catch (error) {
@@ -73,10 +68,10 @@ export default withRouter(function ({ history }) {
     const { token } = sessionStorage
 
     return <>
-        <Route exact path="/" render={() => token ? <Redirect to="/holi" /> : <Landing onRegister={handleGoToRegister} onLogin={handleGoToLogin} />} />
-        <Route path="/register" render={() => token ? <Redirect to="/holi" /> : <Register onRegister={handleRegister} onBack={handleGoBack} />} />
-        <Route path="/login" render={() => token ? <Redirect to="/holi" /> : <><Header/><Login onLogin={handleLogin} onBack={handleGoBack} /> </>} />
-        <Route path="/holi" render={() => <Holi  />} />    
+        <Route exact path="/" render={() => token ? <Redirect to="/holi" /> : <Landing />} />
+        <Route path="/register" render={() => token ? <Redirect to="/holi" /> : <><Header/><Register onRegister={handleRegister}  /> </>} />
+        <Route path="/login" render={() => token ? <Redirect to="/holi" /> : <><Header/><Login onLogin={handleLogin}  /> </>} />
+        <Route path="/holi" render={() => <Holi />} />    
        
     </>
 })
