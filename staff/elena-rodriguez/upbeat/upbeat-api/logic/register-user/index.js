@@ -12,20 +12,25 @@ module.exports = function (username, email, password, rol, instruments, groups, 
     validate.string.notVoid('password', password)
     validate.string(rol)
     validate.string.notVoid('rol', rol)
-    validate.array(instruments)
+    
 
     if ( rol === 'solo') {
+        validate.array(instruments)
         if (instruments.length === 0) throw new ContentError(`${instruments} can't be empty`)
         instruments.forEach(instrument => 
             validate.matches('instrument', instrument, 'drums', 'guitar', 'piano', 'violin', 'bass', 'cello', 'clarinet', 'double-bass', 'flute', 'oboe', 'saxophone', 'trombone', 'trumpet', 'ukelele', 'viola', 'voice')
         )
     }
 
-    validate.string(groups)
-    if ( rol === 'groups') {validate.string.notVoid('groups', groups)
-    validate.matches('groups', groups, 'band', 'choir', 'modern-ensemble', 'orchestra', 'classic-chamber')}
-    validate.number(latitude)
-    validate.number(longitude)
+    
+    if ( rol === 'groups') {
+        validate.string(groups)
+        validate.string.notVoid('groups', groups)
+        validate.matches('groups', groups, 'band', 'choir', 'modernEnsemble', 'orchestra', 'classicChamber')
+    }
+
+    // validate.number(latitude)
+    // validate.number(longitude)
   
   
 
@@ -39,8 +44,8 @@ module.exports = function (username, email, password, rol, instruments, groups, 
         if(rol === 'solo'){
             format = new Solo({instruments})
         }else{
-                                                                                                                                                          format = new Groups({groups})
-        }
-        await User.create({ username, email, password: hash, rol, format, location: {coordinates: [latitude, longitude]}})
+            format = new Groups({groups})
+        } // location: {coordinates: [latitude, longitude]}
+        await User.create({ username, email, password: hash, rol, format})
     })()
 }

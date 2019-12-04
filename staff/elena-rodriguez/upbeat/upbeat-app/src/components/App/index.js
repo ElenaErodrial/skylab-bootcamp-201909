@@ -30,9 +30,9 @@ export default withRouter(function ({ history }) {
 
    
 
-    async function handleRegister(username, email, password, rol, instruments, groups, latitude, longitude) {
+    async function handleRegister(username, email, password, rol, groups, instruments, latitude, longitude) {
         try {
-            await registerUser(username, email, password, rol, instruments, groups, latitude, longitude)
+            await registerUser(username, email, password, rol, groups, instruments, latitude, longitude)
 
             history.push('/login')
         } catch (error) {
