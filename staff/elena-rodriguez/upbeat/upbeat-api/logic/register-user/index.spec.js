@@ -7,7 +7,7 @@ const { errors: { ContentError } } = require('upbeat-util')
 const { database, models: { User } } = require('upbeat-data')
 const bcrypt = require('bcryptjs')
 
-describe('logic - register user', () => {
+describe.only('logic - register user', () => {
 
 
     before(() => database.connect(TEST_DB_URL))
@@ -60,7 +60,7 @@ describe('logic - register user', () => {
     })
 
     describe('when user already exists', () => {
-        beforeEach(() => User.create({ username, email, password, rol, location: { coordinates: [latitude, longitude] } }))
+        beforeEach(() => User.create({ username, email, password, rol, instruments, groups, location: { coordinates: [latitude, longitude] } }))
 
         it('should fail on already existing user', async () => {
             try {
