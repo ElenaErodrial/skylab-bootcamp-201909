@@ -44,10 +44,20 @@ describe('logic - add instrument', () => {
 
     it('should fail on not valid instruments', async () =>{
         const instru = ['wronginstrument']
-        const response = await addInstruments(id, instru)
-        expect(response).to.exist
+        try {
+            const response = await addInstruments(id, instru)
+            throw Error('should not reach this point')
+        } catch (error) {
+            expect(error).to.exist
+            expect(error.message).to.exist
+            expect(typeof error.message).to.equal('string')
+            expect(error.message.length).to.be.greaterThan(0)
+            expect(error.message).to.equal(`${instru[0]} not valid`)
+        }
+
         
     })
+
 
     after(() => User.deleteMany().then(database.disconnect))
 })

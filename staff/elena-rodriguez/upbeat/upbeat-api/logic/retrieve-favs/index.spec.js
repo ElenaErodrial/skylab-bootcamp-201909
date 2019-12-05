@@ -7,12 +7,12 @@ const { errors: { NotFoundError } } = require('upbeat-util')
 const { database, models: { User } } = require('upbeat-data')
 const bcrypt = require('bcryptjs')
 
-describe('logic - retrieve-favs', () => {
+describe.only('logic - retrieve-favs', () => {
     before(() => database.connect(TEST_DB_URL))
-    let username, email, password, rol, rols, longitude, latitude, instruments, groups, favs, username1, email1, password1, rol1, longitude1, latitude1, instruments1, groups1, favs1
+    let user1, username, email, password, rol, rols, longitude, latitude, instruments, groups, favs, username1, email1, password1, rol1, longitude1, latitude1, instruments1, groups1, favs1
     rols = ['solo', 'groups']
     instrumentsList = ['drums', 'guitar', 'piano', 'violin', 'bass', 'cello', 'clarinet', 'double-bass', 'flute', 'oboe', 'saxophone', 'trombone', 'trumpet', 'ukelele', 'viola', 'voice']
-    groupsList = ['band', 'choir', 'modern-ensemble', 'orchestra', 'classic-chamber']
+    groupsList = ['band', 'choir', 'modernEnsemble', 'orchestra', 'classicChamber']
     
     beforeEach( async() => {debugger
         username = `username-${random()}`
@@ -41,20 +41,20 @@ describe('logic - retrieve-favs', () => {
 
         await User.deleteMany()
         const user = await User.create({ username, email, password, rol, longitude, latitude, instruments, groups, favs })
-        const user1 = await User.create({ username: username1, email: email1, password: password1, rol: rol1, longitude: longitude1, latitude: latitude1, instruments: instruments1, groups: groups1, favs: favs1})
+        user1 = await User.create({ username: username1, email: email1, password: password1, rol: rol1, longitude: longitude1, latitude: latitude1, instruments: instruments1, groups: groups1, favs: favs1})
         id = user.id
         id1 = user1.id
-        user.favs.push(user1)
-
+        user.favs.push(id1)
         await user.save()
     })
 
     it('should succeed on correct user id', async () => {
-
-        user = await retrieveFavs(id)
-        expect(user).to.exist
-        expect(user.favs).to.be.an('array')
-        expect(user.favs).to.deep.equal([user1])
+        const userFavs = await retrieveFavs(id)
+        expect(userFavs).to.exist
+        expect(userFavs).to.be.an.instanceOf(Array)
+        expect(userFavs[0].username).to.deep.equal(user1.username)
+        expect(userFavs[0].email).to.deep.equal(user1.email)
+        expect(userFavs[0].rol).to.deep.equal(user1.rol)
         
     })
 

@@ -13,7 +13,7 @@ describe('logic - retrieve user', () => {
     let id , username, email, password, rol, rols, longitude, latitude, format
     rols = ['solo', 'groups']
     instrumentsList = ['drums', 'guitar', 'piano', 'violin', 'bass', 'cello', 'clarinet', 'double-bass', 'flute', 'oboe', 'saxophone', 'trombone', 'trumpet', 'ukelele', 'viola', 'voice']
-    groupsList = ['band', 'choir', 'modern-ensemble', 'orchestra', 'classic-chamber']
+    groupsList = ['band', 'choir', 'modernEnsemble', 'orchestra', 'classicChamber']
 
 
 

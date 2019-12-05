@@ -6,6 +6,7 @@ module.exports = function (id, instru) {
     validate.string(id)
     validate.string.notVoid('id', id)
     if (!ObjectId.isValid(id)) throw new ContentError(`${id} is not a valid id`)
+    validate.array(instru)
      
 
     return (async () => {
@@ -13,7 +14,7 @@ module.exports = function (id, instru) {
         if (!user) throw new NotFoundError(`user with id ${id} not found`)
 
         instru.forEach(ele => {
-            if (!instrumentsList.includes(ele)) throw new NotFoundError(`${instru} not valid`)
+            if (!instrumentsList.includes(ele)) throw new ContentError(`${instru} not valid`)
             else {
                 if (!user.format.instruments.includes(ele))
                 {user.format.instruments.push(ele)}

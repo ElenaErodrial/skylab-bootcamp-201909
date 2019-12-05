@@ -9,27 +9,31 @@ const { ObjectId, database, models: { User, Chat, Message } } = require('upbeat-
 describe('logic - retrieve-complete-user', () => {
     before(() => database.connect(TEST_DB_URL))
 
+    const users = []
+    const ids = []
     let id1, id2, id3, chatId, username, email, password, message1, message2, messages
 
 
     beforeEach(async() => {
         await User.deleteMany()
 
-        //PERSON
-        username = `name-${random()}`
-        email = `email-${random()}@mail.com`
-        password = `password-${random()}`
-        
+        for (let index = 0; index < 3; index++) {
+            username = `username-${random()}`
+            email = `email-${random()}@mail.com`
+            password = `password-${random()}`
+            
+    
+            let user = { username, email, password }
+            users.push(user)
+           
+        }
 
-        const user1 = await User.create({ username, email, password })
-        id1 = user1.id
+    
 
-        const user2 = await User.create({ username, email, password })
-        id2 = user2.id
-
-        const user3 = await User.create({ username, email, password })
-        id3 = user3.id
-
+        const data = await User.insertMany(users)
+        id1 = data[0].id
+        id2 = data[1].id
+        id3 = data[2].id
         const chat = await Chat.create({ users: [ObjectId(id2), ObjectId(id1)], messages: [] })
         chatId = chat.id
 
@@ -42,16 +46,12 @@ describe('logic - retrieve-complete-user', () => {
         messages = [message1, message2]
 
 
-        chat.messages.push(message1.toObject())
-        chat.messages.push(message2.toObject())
+        chat.messages = messages
+   
 
         await chat.save()
 
-        user1.connections.push(ObjectId(id2))
-        user2.connections.push(ObjectId(id1))
-
-        await user1.save()
-        await user2.save()
+      
     })
 
     it('should return a correct chat', async() => {

@@ -2,7 +2,7 @@ const { validate, errors: { ConflictError } } = require('upbeat-util')
 const { models: { User, Solo, Groups } } = require('upbeat-data')
 const bcrypt = require('bcryptjs')
 
-module.exports = function (username, email, password, rol, instruments, groups, latitude, longitude) {
+module.exports = function (username, email, password, rol, instruments, groups) {
     validate.string(username)
     validate.string.notVoid('username', username)
     validate.string(email)
