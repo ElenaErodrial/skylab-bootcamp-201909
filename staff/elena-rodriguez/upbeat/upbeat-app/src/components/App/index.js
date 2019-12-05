@@ -5,6 +5,8 @@ import Register from '../Register'
 import Login from '../Login'
 import Holi from '../holi'
 import Header from '../Header'
+import Search from '../Search'
+import Footer from '../Footer'
 // import Board from '../Board'
 import { Route, withRouter, Redirect } from 'react-router-dom'
 import { authenticateUser, registerUser} from '../../logic/'
@@ -46,7 +48,7 @@ export default withRouter(function ({ history }) {
 
             sessionStorage.token = token
 
-            history.push('/holi')
+            history.push('/search')
             console.log('ok login')
         } catch (error) {
             console.error(error)
@@ -70,7 +72,8 @@ export default withRouter(function ({ history }) {
     return <>
         <Route exact path="/" render={() => token ? <Redirect to="/holi" /> : <Landing />} />
         <Route path="/register" render={() => token ? <Redirect to="/holi" /> : <><Header/><Register onRegister={handleRegister}  /> </>} />
-        <Route path="/login" render={() => token ? <Redirect to="/holi" /> : <><Header/><Login onLogin={handleLogin}  /> </>} />
+        <Route path="/login" render={() => token ? <Redirect to="/search" /> : <><Header/><Login onLogin={handleLogin}  /> </>} />
+        <Route path="/search" render= {() => token ? <><Header/><Search/><Footer/> </> : <Redirect to="/" />} />
         <Route path="/holi" render={() => <Holi />} />    
        
     </>
