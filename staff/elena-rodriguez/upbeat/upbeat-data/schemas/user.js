@@ -45,7 +45,7 @@ module.exports = new Schema ({
     links : [Links],
 
     favs: {
-        type: Array
+        type: Array,
     },
 
     location: {
@@ -53,6 +53,8 @@ module.exports = new Schema ({
             type: String,
             enum: ['Point'],
             default: 'Point',
+
+
         },
         coordinates: {
             type: [Number],

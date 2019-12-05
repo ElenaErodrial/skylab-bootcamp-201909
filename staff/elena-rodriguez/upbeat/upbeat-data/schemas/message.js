@@ -8,7 +8,7 @@ module.exports = new Schema({
         ref: 'User'
     },
 
-    content: {
+    body: {
         type: String,
         required: true
     },
