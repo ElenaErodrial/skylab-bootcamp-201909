@@ -1,13 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function ({ user }) {
-    return <section className="search">
-        <p className='greeting'>Hello, {user}! </p>
-        <form className='searcher'>
-            <input type="text" className='searcher__bar' name="instruments" placeholder="what are you looking for?" />
-            <button className="searcher__button">Search</button>
-        </form>
-    </section>
+import Results from '../Results'
 
+export default function ({ user, onSearch, results }) {
+    debugger
+    return <>
+        <section className="search">
+            <p className='greeting'>Hello, {user}! </p>
+            <form className='searcher' onSubmit={event => {
+                event.preventDefault();
+                const { query: { value: query } } = event.target
+                onSearch(query)
+            }}>
+                <input type="text" className='searcher__bar' name="query" placeholder="what are you looking for?" />
+                <button className="searcher__button">Search</button>
+            </form>
+            <Results results={results} />
+        </section>
+    </>
 }
