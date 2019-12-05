@@ -53,7 +53,9 @@ router.get('/retrievechats', tokenVerifier, (req, res) => {
         const { id } = req
 
         retrieveChats(id)
+
             .then(chats => res.status(201).json( chats ))
+
             .catch(error => {
                 const { message } = error
 

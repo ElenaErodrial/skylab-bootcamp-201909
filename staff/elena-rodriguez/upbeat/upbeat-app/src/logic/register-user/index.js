@@ -1,8 +1,11 @@
-const { validate, errors: { ConflictError } } = require('upbeat-util')
-const { models: { User, Solo, Groups } } = require('upbeat-data')
-const bcrypt = require('bcryptjs')
+const call = require('../../utils/call')
+const { validate, errors: { ContentError, ConflictError } } = require('upbeat-util')
+// const { env: { REACT_APP_API_URL: API_URL } } = process
+const API_URL = process.env.REACT_APP_API_URL
+//const API_URL = "http://localhost:8000"
 
-module.exports = function (username, email, password, rol, instruments, groups, latitude, longitude) {
+
+module.exports = function (username, email, password, rol, groups, instruments) {
     validate.string(username)
     validate.string.notVoid('username', username)
     validate.string(email)
@@ -12,8 +15,7 @@ module.exports = function (username, email, password, rol, instruments, groups, 
     validate.string.notVoid('password', password)
     validate.string(rol)
     validate.string.notVoid('rol', rol)
-
-
+    
     if (rol === 'solo') {
         validate.array(instruments)
         if (instruments.length === 0) throw new ContentError(`${instruments} can't be empty`)
@@ -21,32 +23,26 @@ module.exports = function (username, email, password, rol, instruments, groups, 
             validate.matches('instrument', instrument, 'drums', 'guitar', 'piano', 'violin', 'bass', 'cello', 'clarinet', 'double-bass', 'flute', 'oboe', 'saxophone', 'trombone', 'trumpet', 'ukelele', 'viola', 'voice')
         )
     }
-
+    
     if (rol === 'groups') {
-
         validate.string(groups)
         validate.string.notVoid('groups', groups)
         validate.matches('groups', groups, 'band', 'choir', 'modernEnsemble', 'orchestra', 'classicChamber')
     }
-  
-    // validate.number(latitude)
-    // validate.number(longitude)
-
 
     return (async () => {
-        const user = await User.findOne({ username })
+        const res = await call(`${API_URL}/users`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password, rol, instruments, groups })
+        })
 
-        if (user) throw new ConflictError(`user with username ${username} already exists`)
+        if (res.status === 201) return console.log('group added correctly')
+        
+        if (res.status === 409) throw new ConflictError(JSON.parse(res.body).message)
 
-        const hash = await bcrypt.hash(password, 10)
-        let format = {}
-
-        if (rol === 'solo') {
-            format = new Solo({ instruments })
-        } else {
-            format = new Groups({ groups })
-        }
-        await User.create({ username, email, password: hash, rol, format })
+        throw new Error(JSON.parse(res.body).message)
 
     })()
+
 }
