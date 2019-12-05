@@ -2,7 +2,7 @@ const { validate, errors: { ConflictError } } = require('upbeat-util')
 const { models: { User, Solo, Groups } } = require('upbeat-data')
 const bcrypt = require('bcryptjs')
 
-module.exports = function (username, email, password, rol, instruments, groups, latitude, longitude) {
+module.exports = function (username, email, password, rol, instruments, groups) {
     validate.string(username)
     validate.string.notVoid('username', username)
     validate.string(email)
@@ -12,27 +12,26 @@ module.exports = function (username, email, password, rol, instruments, groups, 
     validate.string.notVoid('password', password)
     validate.string(rol)
     validate.string.notVoid('rol', rol)
-    
 
-    if ( rol === 'solo') {
+
+    if (rol === 'solo') {
         validate.array(instruments)
         if (instruments.length === 0) throw new ContentError(`${instruments} can't be empty`)
-        instruments.forEach(instrument => 
+        instruments.forEach(instrument =>
             validate.matches('instrument', instrument, 'drums', 'guitar', 'piano', 'violin', 'bass', 'cello', 'clarinet', 'double-bass', 'flute', 'oboe', 'saxophone', 'trombone', 'trumpet', 'ukelele', 'viola', 'voice')
         )
     }
 
-    
-    if ( rol === 'groups') {
+    if (rol === 'groups') {
+
         validate.string(groups)
         validate.string.notVoid('groups', groups)
         validate.matches('groups', groups, 'band', 'choir', 'modernEnsemble', 'orchestra', 'classicChamber')
     }
-
+  
     // validate.number(latitude)
     // validate.number(longitude)
-  
-  
+
 
     return (async () => {
         const user = await User.findOne({ username })
@@ -41,11 +40,13 @@ module.exports = function (username, email, password, rol, instruments, groups, 
 
         const hash = await bcrypt.hash(password, 10)
         let format = {}
-        if(rol === 'solo'){
-            format = new Solo({instruments})
-        }else{
-            format = new Groups({groups})
-        } // location: {coordinates: [latitude, longitude]}
-        await User.create({ username, email, password: hash, rol, format})
+
+        if (rol === 'solo') {
+            format = new Solo({ instruments })
+        } else {
+            format = new Groups({ groups })
+        }
+        await User.create({ username, email, password: hash, rol, format })
+
     })()
 }

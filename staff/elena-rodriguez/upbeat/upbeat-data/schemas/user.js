@@ -53,6 +53,8 @@ module.exports = new Schema ({
             type: String,
             enum: ['Point'],
             default: 'Point',
+
+
         },
         coordinates: {
             type: [Number],

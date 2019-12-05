@@ -8,23 +8,27 @@ const { ObjectId, database, models: { User, Chat } } = require('upbeat-data')
 
 describe('logic - retrieve-personal-info', () => {
     before(() => database.connect(TEST_DB_URL))
-
+    const users = []
     let id, username, email, password
 
     beforeEach(async() => {
         await User.deleteMany()
 
-        //PERSON
-        username = `name-${random()}`
-        email = `email-${random()}@mail.com`
-        password = `password-${random()}`
-        //rol = 'PERSON'
+        for (let index = 0; index < 2; index++) {
+            username = `username-${random()}`
+            email = `email-${random()}@mail.com`
+            password = `password-${random()}`
+            
+    
+            let user = { username, email, password }
+            users.push(user)
+           
+        }
 
-        const user1 = await User.create({ username, email, password })
-        id1 = user1.id
+        const data = await User.insertMany(users)
+        id1 = data[0].id
+        id2 = data[1].id
 
-        const user2 = await User.create({ username, email, password })
-        id2 = user2.id
 
     })
 

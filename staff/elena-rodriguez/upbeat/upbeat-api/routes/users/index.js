@@ -12,10 +12,10 @@ const Busboy = require('busboy')
 const router = Router()
 
 router.post('/', jsonBodyParser, (req, res) => {
-    const { body: { username, email, password, rol, instruments, groups, latitude, longitude } } = req
+    const { body: { username, email, password, rol, instruments, groups } } = req
 
     try {
-        registerUser(username, email, password, rol, instruments, groups, latitude, longitude)
+        registerUser(username, email, password, rol, instruments, groups)
             .then(() => res.status(201).end())
             .catch(error => {
                 const { message } = error

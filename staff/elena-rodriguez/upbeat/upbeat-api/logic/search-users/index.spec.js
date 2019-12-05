@@ -15,7 +15,7 @@ describe('logic - search ads', () => {
     let id , username, email, password, rol, rols, longitude, latitude, format, groups, query
     rols = ['solo', 'groups']
     instrumentsList = ['drums', 'guitar', 'violin', 'bass', 'cello', 'clarinet', 'double-bass', 'flute', 'oboe', 'saxophone', 'trombone', 'trumpet', 'ukelele', 'viola', 'voice']
-    groupsList = ['band', 'choir', 'modern-ensemble', 'orchestra', 'classic-chamber']
+    groupsList = ['band', 'choir', 'modernEnsemble', 'orchestra', 'classicChamber']
     let hash
     const users = []
 
