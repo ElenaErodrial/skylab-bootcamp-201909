@@ -26,10 +26,10 @@ module.exports = function (username, email, password, rol, instruments, groups, 
     if (rol === 'groups') {
         validate.string(groups)
         validate.string.notVoid('groups', groups)
-        validate.matches('groups', groups, 'band', 'choir', 'modern-ensemble', 'orchestra', 'classic-chamber')
+        validate.matches('groups', groups, 'band', 'choir', 'modernEnsemble', 'orchestra', 'classicChamber')
     }
-    validate.number(latitude)
-    validate.number(longitude)
+    // validate.number(latitude)
+    // validate.number(longitude)
 
 
 
@@ -45,6 +45,6 @@ module.exports = function (username, email, password, rol, instruments, groups, 
         } else {
             format = new Groups({ groups })
         }
-        await User.create({ username, email, password: hash, rol, format, location: { coordinates: [latitude, longitude] } })
+        await User.create({ username, email, password: hash, rol, format })
     })()
 }
