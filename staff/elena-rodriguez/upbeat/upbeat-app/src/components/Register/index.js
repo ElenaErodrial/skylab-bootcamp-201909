@@ -49,7 +49,7 @@ export default function ({ onRegister, error }) {
                 <input className="register-form__email" type="email" name="email" placeholder="e-mail" />
                 <input className="register-form__password" type="password" name="password" placeholder="password" />
                 <div className="checking-container">
-                    <p className="instructions">Single musician or a group?</p>
+                    <p className="instructions">Are you a single musician or a group?</p>
 
                     <label>Single musician</label>
                     <input className="register-form__option" id="type-single" type="radio"
@@ -59,7 +59,7 @@ export default function ({ onRegister, error }) {
                     <input className="register-form__option" id="type-groups" type="radio" name="rol" value="groups" />
 
                     <div className="type-groups">
-                        <p className="instructions">Type of group</p>
+                        <p className="instructions">Select your type of group</p>
                         <div className="checkbox-container">
                             <select name="groups">
 
@@ -89,7 +89,7 @@ export default function ({ onRegister, error }) {
                     </div>
 
                     <div className="type-single">
-                        <p className="instructions">Instruments</p>
+                        <p className="instructions">Please, select the instruments you play:</p>
                         <div className="checkbox-container">
                             <label><input className="register-form__option" type="checkbox" name="drums"
                                 value="drums" />Drums</label>
