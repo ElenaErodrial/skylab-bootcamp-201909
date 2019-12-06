@@ -219,7 +219,7 @@ router.get('/profileimageUrl/:id', tokenVerifier, async(req, res) => {
     res.json({ imageUrl })
 })
 
-router.get('/search/:query', (req, res) => {debugger
+router.get('/search/:query', (req, res) => {
     try {
         const { params: { query } } = req
 
