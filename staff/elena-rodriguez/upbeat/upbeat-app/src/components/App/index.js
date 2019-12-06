@@ -65,13 +65,19 @@ export default withRouter(function ({ history }) {
         handleGoBack()
     }
 
-    async function handleSearch(query) {
+    async function handleSearch(query) {debugger
 
-        const result = await searchUsers(query)
-        debugger
-        setResult(result)
+        try {
+            if (query) {const result = await searchUsers(query)
+                
+                setResult(result) 
+            } else {setResult([])}
+            }   
+            
 
-
+         catch (error) {
+            console.error(error)
+        }
 
     }
 

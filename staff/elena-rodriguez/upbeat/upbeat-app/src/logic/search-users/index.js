@@ -15,9 +15,9 @@ module.exports = function (query) {
 
         if (res.status === 201) {
 
-            const result = JSON.parse(res.body) 
+            const {results} = JSON.parse(res.body) 
 
-            return result
+            return results
         }
         
         
