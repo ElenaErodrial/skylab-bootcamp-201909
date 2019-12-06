@@ -7,7 +7,7 @@ const { errors: { NotFoundError } } = require('upbeat-util')
 const { database, models: { User } } = require('upbeat-data')
 const bcrypt = require('bcryptjs')
 
-describe.only('logic - retrieve-favs', () => {
+describe('logic - retrieve-favs', () => {
     before(() => database.connect(TEST_DB_URL))
     let user1, username, email, password, rol, rols, longitude, latitude, instruments, groups, favs, username1, email1, password1, rol1, longitude1, latitude1, instruments1, groups1, favs1
     rols = ['solo', 'groups']

@@ -14,7 +14,8 @@ module.exports = {
     createChat: require('./create-chat'),
     retrieveChat: require('./retrieve-chat'),
     retrieveChats: require('./retrieve-chats'),
-    sendMessage: require('./send-message')
+    sendMessage: require('./send-message'),
+    retrieveMusicians: require('./retrieve-musicians')
     //createTask: require('./create-task'),
     //listTasks: require('./list-tasks'),
     //modifyTask: require('./modify-task'),
