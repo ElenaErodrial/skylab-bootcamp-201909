@@ -62,13 +62,7 @@ export default withRouter(function ({ history }) {
         }
     }
 
-    function handleGoBack() { history.push('/') }
-
-    function handleLogout() {
-        sessionStorage.clear()
-
-        handleGoBack()
-    }
+    
 
     async function handleSearch(query) {
 
@@ -87,7 +81,7 @@ export default withRouter(function ({ history }) {
 
     async function handleDetail(id) {
         console.log(id)
-debugger
+
         try {
             
             const musician = await retrieveMusician(id)
@@ -102,6 +96,14 @@ debugger
             
     }
 
+    function handleGoBack() { history.push('/') }
+
+    function handleLogout() {
+        sessionStorage.clear()
+
+        handleGoBack()
+    }
+
 
 
 
@@ -111,8 +113,8 @@ debugger
         <Route exact path="/" render={() => token ? <Redirect to="/holi" /> : <Landing />} />
         <Route path="/register" render={() => token ? <Redirect to="/holi" /> : <><Header /><Register onRegister={handleRegister} /> </>} />
         <Route path="/login" render={() => token ? <Redirect to="/search" /> : <><Header /><Login onLogin={handleLogin} /> </>} />
-        <Route path="/search" render={() => token ? <><Header /><Search user={username} onSearch={handleSearch} results={result} onDetail={handleDetail}/><Footer /> </> : <Redirect to="/" />} />
-        <Route path="/detail/:id" render={() => token ? <Detail musician={musician}/> : <Redirect to= "/" />} />
+        <Route path="/search" render={() => token ? <><Header /><Search user={username} onSearch={handleSearch} results={result} onDetail={handleDetail}/><Footer onLogout={handleLogout}/> </> : <Redirect to="/" />} />
+        <Route path="/detail/:id" render={() => token ? <><Header /><Detail musician={musician}/><Footer onLogout={handleLogout}/> </> : <Redirect to= "/" />} />
         <Route path="/holi" render={() => <Holi />} />
 
     </>

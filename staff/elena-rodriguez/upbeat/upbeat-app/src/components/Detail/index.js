@@ -20,7 +20,8 @@ export default function ({ musician }) {
         </div>
         <div className="user-content">
             <div className="image-container">
-                <img className="user-content__img" src="images/oriol.jpg" />
+            { rol === "solo" && <img className="user-content__img" src={image ? image : "images/default/solo.jpg"}/>}
+            { rol === "groups" && <img className="user-content__img" src={image ? image : "images/default/groups.jpg"}/>}
                 <a href="#"><i className="far fa-heart"></i></a>
             </div>
             <p className="user-content__description">{description}</p>
