@@ -3,7 +3,7 @@ const { ObjectId, models: { User } } = require('upbeat-data')
 
 
 module.exports = function (id) {
-    debugger
+    
     validate.string(id)
     validate.string.notVoid('id', id)
     if (!ObjectId.isValid(id)) throw new ContentError(`${id} is not a valid id`)

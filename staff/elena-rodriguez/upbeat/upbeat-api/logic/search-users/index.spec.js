@@ -9,7 +9,7 @@ const { database, ObjectId, models: { User, Groups, Solo } } = require('upbeat-d
 const bcrypt = require('bcryptjs')
 const salt = 10
 
-describe('logic - search ads', () => {
+describe('logic - search musicians', () => {
     before(() => database.connect(TEST_DB_URL))
 
     let id , username, email, password, rol, rols, longitude, latitude, format, groups, query
@@ -55,10 +55,10 @@ describe('logic - search ads', () => {
         musicians.forEach(musician => {
             expect(musician.username).to.exist
             expect(musician.username).to.be.a('string')
-            expect(musician.instruments).to.exist
-            expect(musician.instruments).to.be.an('array')
-            expect(musician.instruments[0]).to.equal('piano')
-            expect(musician.groups).to.be.undefined
+            expect(musician.format.instruments).to.exist
+            expect(musician.format.instruments).to.be.an('array')
+            expect(musician.format.instruments[0]).to.equal('piano')
+            expect(musician.format.groups).to.be.undefined
        
         });
         
@@ -75,7 +75,7 @@ describe('logic - search ads', () => {
         musicians.forEach(musician => {
             expect(musician.username).to.exist
             expect(musician.username).to.be.a('string')
-            //if (musician.instruments) 
+    
             if (musician.format === 'solo')
             {
                 expect(musician.instruments).to.exist

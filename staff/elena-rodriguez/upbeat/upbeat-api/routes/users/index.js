@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { registerUser, authenticateUser, retrieveUser, modifyUser, addInstruments, deleteInstrument, toggleFavs, retrieveFavs, saveProfileImage, loadProfileImage, loadProfileImageUrl, searchUsers } = require('../../logic')
+const { registerUser, authenticateUser, retrieveUser, modifyUser, addInstruments, deleteInstrument, toggleFavs, retrieveFavs, saveProfileImage, loadProfileImage, loadProfileImageUrl, searchUsers, retrieveMusicians } = require('../../logic')
 const jwt = require('jsonwebtoken')
 const { env: { SECRET } } = process
 const tokenVerifier = require('../../helpers/token-verifier')(SECRET)
@@ -239,9 +239,29 @@ router.get('/search/:query', (req, res) => {
         res.status(400).json({ message })
     }
 
-    
 
+})
 
+router.get('/detail/:id', jsonBodyParser, (req, res) => {
+    try {
+        const { params : {id} } = req
+
+        retrieveMusicians(id)
+        .then(musician => res.status(201).json( musician ))
+            
+            .catch(error => {
+                const { message } = error
+
+                if (error instanceof NotFoundError)
+                    return res.status(404).json({ message })
+                if (error instanceof ConflictError)
+                    return res.status(409).json({ message })
+
+                res.status(500).json({ message })
+            })
+    } catch ({ message }) {
+        res.status(400).json({ message })
+    }
 })
 
 
