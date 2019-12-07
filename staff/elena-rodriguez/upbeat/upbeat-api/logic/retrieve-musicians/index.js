@@ -13,9 +13,9 @@ module.exports = function (id) {
         if (!musician) throw new NotFoundError(`user with id ${id} not found`)
 
 
-        const { username, email, image, format, location, description, links, upcomings, _id} = musician
+        const { username, email, image, rol, format, location, description, links, upcomings, _id} = musician
         
-            return { username, email, image, format, location, description, links, upcomings, id : _id}
+            return { username, email, image, rol, format, location, description, links, upcomings, id : _id.toString()}
 
     })()
 }

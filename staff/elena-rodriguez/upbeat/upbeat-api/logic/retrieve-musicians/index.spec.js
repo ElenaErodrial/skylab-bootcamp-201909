@@ -7,7 +7,7 @@ const { errors: { NotFoundError } } = require('upbeat-util')
 const { database, models: { User, Solo, Groups } } = require('upbeat-data')
 const bcrypt = require('bcryptjs')
 
-describe.only('logic - retrieve musician', () => {debugger
+describe('logic - retrieve musician', () => {
     before(() => database.connect(TEST_DB_URL))
 
     let username, email, password, rol, image, format, location, description, links, upcomings, id
@@ -32,7 +32,7 @@ describe.only('logic - retrieve musician', () => {debugger
     
         await User.deleteMany()
 
-        const musician = await User.create({ username, email, password, image, format, location: { coordinates: [latitude, longitude] }, description, links, upcomings}) 
+        const musician = await User.create({ username, email, password, image, rol,  format, location: { coordinates: [latitude, longitude] }, description, links, upcomings}) 
         id = musician.id
     })
 
@@ -40,11 +40,11 @@ describe.only('logic - retrieve musician', () => {debugger
     
     
 
-    it('should succeed on correct user id', async () => {debugger
+    it('should succeed on correct user id', async () => {
         const musician = await retrieveMusician(id)
         expect(musician).to.exist
-        // expect(musician.id).to.equal(id)
-        // expect(musician.id).to.be.a('string')
+        expect(musician.id).to.equal(id)
+        expect(musician.id).to.be.a('string')
         expect(musician._id).to.not.exist
         expect(musician.username).to.equal(username)
         expect(musician.username).to.be.a('string')
@@ -72,8 +72,6 @@ describe.only('logic - retrieve musician', () => {debugger
             expect(error.message).to.equal(`user with id ${id} not found`)
         }
     })
-
-    // TODO other cases
 
     after(() => User.deleteMany().then(database.disconnect))
 })
