@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, UseParams } from 'react';
 import './index.sass'
 import Landing from '../Landing'
 import Register from '../Register'
@@ -7,29 +7,34 @@ import Holi from '../holi'
 import Header from '../Header'
 import Search from '../Search'
 import Footer from '../Footer'
-// import Board from '../Board'
+import Detail from '../Detail'
 import { Route, withRouter, Redirect } from 'react-router-dom'
-import { authenticateUser, registerUser, retrieveUser, searchUsers } from '../../logic/'
+import { authenticateUser, registerUser, retrieveUser, searchUsers, retrieveMusician } from '../../logic/'
 // import { authenticateUser, registerUser, retrieveUser, listTasks, modifyTask, createTask } from '../../logic'
 
 export default withRouter(function ({ history }) {
     const [username, setUsername] = useState()
-    const [tasks, setTasks] = useState([])
     const [result, setResult] = useState([])
+    const [musician, setMusician] = useState({})
 
     useEffect(() => {
-        const { token } = sessionStorage;
-
+        const { token, musicianId } = sessionStorage;
+         
+        
         (async () => {
             if (token) {
+                
                 const { username } = await retrieveUser(token)
-
                 setUsername(username)
 
-                //await retrieveTasks(token)
+                if(musicianId !== undefined) {
+                    const musician = await retrieveMusician(musicianId)
+                setMusician(musician)
+                }
+
             }
         })()
-    }, [sessionStorage.token])
+    }, [sessionStorage.token, sessionStorage.musicianId])
 
 
 
@@ -65,7 +70,7 @@ export default withRouter(function ({ history }) {
         handleGoBack()
     }
 
-    async function handleSearch(query) {debugger
+    async function handleSearch(query) {
 
         try {
             if (query) {const result = await searchUsers(query)
@@ -74,12 +79,29 @@ export default withRouter(function ({ history }) {
             } else {setResult([])}
             }   
             
-
          catch (error) {
             console.error(error)
         }
 
     }
+
+    async function handleDetail(id) {
+        console.log(id)
+debugger
+        try {
+            
+            const musician = await retrieveMusician(id)
+            debugger
+            sessionStorage.musicianId = id
+            setMusician(musician)
+            history.push(`/detail/${id}`)
+        }
+            catch (error) {
+                console.log(error)
+        }
+            
+    }
+
 
 
 
@@ -89,7 +111,8 @@ export default withRouter(function ({ history }) {
         <Route exact path="/" render={() => token ? <Redirect to="/holi" /> : <Landing />} />
         <Route path="/register" render={() => token ? <Redirect to="/holi" /> : <><Header /><Register onRegister={handleRegister} /> </>} />
         <Route path="/login" render={() => token ? <Redirect to="/search" /> : <><Header /><Login onLogin={handleLogin} /> </>} />
-        <Route path="/search" render={() => token ? <><Header /><Search user={username} onSearch={handleSearch} results={result} /><Footer /> </> : <Redirect to="/" />} />
+        <Route path="/search" render={() => token ? <><Header /><Search user={username} onSearch={handleSearch} results={result} onDetail={handleDetail}/><Footer /> </> : <Redirect to="/" />} />
+        <Route path="/detail/:id" render={() => token ? <Detail musician={musician}/> : <Redirect to= "/" />} />
         <Route path="/holi" render={() => <Holi />} />
 
     </>
