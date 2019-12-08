@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 import Results from '../Results'
 
-export default function ({ user, onSearch, results, onDetail }) {
-    debugger
+export default function ({ username, onSearch, results, onDetail }) {
+    
     return <>
         <section className="search">
-            <p className='greeting'>Hello, {user}! </p>
+            <p className='greeting'>Hello, {username}! </p>
             <form className='searcher' onSubmit={event => {
                 event.preventDefault();
                 const { query: { value: query } } = event.target

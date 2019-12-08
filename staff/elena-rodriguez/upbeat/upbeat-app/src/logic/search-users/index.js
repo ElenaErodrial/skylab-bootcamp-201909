@@ -4,7 +4,7 @@ const { validate, errors: { NotFoundError } } = require('upbeat-util')
 const API_URL = process.env.REACT_APP_API_URL
 //const API_URL = "http://localhost:8000"
 
-module.exports = function (query) {debugger
+module.exports = function (query) {
     validate.string(query)
     validate.string.notVoid('query', query)
     // query = query.toLowerCase()

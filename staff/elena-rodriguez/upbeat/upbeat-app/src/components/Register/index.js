@@ -13,7 +13,7 @@ export default function ({ onRegister, error }) {
             <form className="register-form" onSubmit={function (event) {
                 
                 event.preventDefault()
-                debugger
+                
                 let instruments = [] 
 
                 const { username: { value: username }, email: { value: email }, password: { value: password }, rol: { value: rol }, groups: {value: groups}  } = event.target
