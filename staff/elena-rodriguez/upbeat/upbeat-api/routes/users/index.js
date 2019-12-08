@@ -118,9 +118,9 @@ router.delete('/:id', tokenVerifier, jsonBodyParser, (req, res) => {
     }
 })
 
-router.patch('/:id', tokenVerifier, jsonBodyParser, (req, res) => {
+router.patch('/:id', tokenVerifier, jsonBodyParser, (req, res) => { 
     try {
-        const { id, body: { username, email, password, description, image, links, upcomings } } = req
+        const { params: {id} , body: { username, email, password, description, image, links, upcomings } } = req
 
         modifyUser(id, username, email, password, description, image, links, upcomings)
             .then(() =>
