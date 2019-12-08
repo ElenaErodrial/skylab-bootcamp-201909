@@ -28,7 +28,7 @@ export default function ({ user : {id, username, email, description, upcomings }
                 <button className="edit-form__submit">Submit</button>
 
             </form>
-            <Link className="register-form__login" to="/search"> Go back</Link>
+            <Link className="go-back" to="/search"> Go back</Link>
 
         </section>
     </>

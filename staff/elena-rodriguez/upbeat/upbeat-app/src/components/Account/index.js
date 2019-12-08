@@ -38,6 +38,6 @@ export default function ({ user }) {
                 <button className="chat"><i className="far fa-comments"></i></button>
             </div>
         </div>
-        <Link className="register-form__login" to="/"> Go back</Link>
+        <Link className="go-back" to="/"> Go back</Link>
     </section>}</>
 }

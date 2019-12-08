@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { retrieveMusician } from '../../logic/'
+import { Link } from 'react-router-dom'
 
 export default function ({ musician }) {
     console.log(musician)
@@ -38,6 +39,6 @@ export default function ({ musician }) {
                 <button className="chat"><i className="far fa-comments"></i></button>
             </div>
         </div>
-        <buttom className="go-back">Go back</buttom>
+        <Link className="go-back" to="/"> Go back</Link>
     </section>
 }

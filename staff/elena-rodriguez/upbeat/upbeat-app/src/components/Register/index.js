@@ -125,7 +125,7 @@ export default function ({ onRegister, error }) {
                     </div>
                 </div>
                 <button className="register-form__submit">Submit</button>
-                <Link className="register-form__login" to="/"> Go back</Link>
+                <Link className="go-back" to="/"> Go back</Link>
             </form>
         </section>
     </>
