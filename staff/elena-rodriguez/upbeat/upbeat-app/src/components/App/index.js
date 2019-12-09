@@ -60,7 +60,7 @@ export default withRouter(function ({ history }) {
             sessionStorage.token = token
 
             history.push('/search')
-            console.log('ok login')
+        
         } catch (error) {
             console.error(error)
         }
@@ -94,7 +94,7 @@ export default withRouter(function ({ history }) {
             history.push(`/detail/${id}`)
         }
             catch (error) {
-                console.log(error)
+                console.error(error)
         }
             
     }
@@ -123,7 +123,7 @@ export default withRouter(function ({ history }) {
             history.push('/') 
         }
             catch (error) {
-                console.log(error)
+                console.error(error)
         }
             
     }
@@ -140,7 +140,7 @@ export default withRouter(function ({ history }) {
             
         }
             catch (error) {
-                console.log(error)
+                console.error(error)
         }
             
     }

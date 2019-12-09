@@ -3,11 +3,10 @@ import { retrieveMusician } from '../../logic/'
 import { Link } from 'react-router-dom'
 
 export default function ({ musician }) {
-    console.log(musician)
+    
 
     const { username, description, rol, format, email, image, links, upcomings } = musician
-    console.log(username, description)
-    console.log(format)
+    
 
 
     return <section className="profile">

@@ -37,7 +37,7 @@ module.exports = function (username, email, password, rol, groups, instruments) 
             body: JSON.stringify({ username, email, password, rol, instruments, groups })
         })
 
-        if (res.status === 201) return console.log('group added correctly')
+        if (res.status === 201) return 
         
         if (res.status === 409) throw new ConflictError(JSON.parse(res.body).message)
 

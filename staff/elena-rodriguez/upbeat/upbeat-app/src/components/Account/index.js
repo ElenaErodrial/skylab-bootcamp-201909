@@ -9,7 +9,7 @@ export default function ({ user }) {
    
 
 
-    return <>{user && <section className="profile">
+    return <>{user && <section className="profile account">
         <div className="profile__header">
             <h2 className='profile__username'>{username}</h2>
             <p className='profile__position'>{(rol === "solo") ? format.instruments.join() : format.groups}</p>
@@ -22,7 +22,6 @@ export default function ({ user }) {
             <div className="image-container">
             { rol === "solo" && <img className="user-content__img" src={image ? image : "images/default/solo.jpg"}/>}
             { rol === "groups" && <img className="user-content__img" src={image ? image : "images/default/groups.jpg"}/>}
-                <a href="#"><i className="far fa-heart"></i></a>
             </div>
             <p className="user-content__description">{description}</p>
             <h2 className='user-content__subtitle'>Some of my work:</h2>
