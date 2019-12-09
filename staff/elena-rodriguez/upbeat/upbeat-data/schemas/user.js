@@ -7,6 +7,7 @@ module.exports = new Schema ({
         type: String,
         required: true,    
     },
+
     email: {
         type: String,
         required: true,
@@ -21,12 +22,10 @@ module.exports = new Schema ({
 
     image: {
         type: String,
-        //required: true
     },
 
     rol: {
         type: String,
-        //required: true,
         enum: ['solo', 'groups']
     },
 
@@ -49,14 +48,8 @@ module.exports = new Schema ({
     },
 
     location: {
-        type: {
-            type: String,
-            enum: ['Point'],
-            default: 'Point',
-        },
-        coordinates: {
-            type: [Number],
-        }
+
+        type: String 
     }
    
 })
