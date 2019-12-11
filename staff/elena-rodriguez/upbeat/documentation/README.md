@@ -8,8 +8,41 @@ UpBeat is a community for musicians that helps to establish contacts between the
 
 ## Functional Description
 
+Users can:
+
+* Create a personal profile.
+
+* Modify their profile and add information and a profile picture.
+
+* Search other musicians by username or the instruments they play.
+
+* Search groups of music by name or type of group.
+
+* See the detailed information in the profile of musicians/groups and access to their social media or websites.
+
+* Add and remove users or groups to favorites.
+
+* Contact with other users or groups by email. 
+
+
+
+
+
+
 ### Use Cases
 
 ![Alt text](usecases.jpg)
 
 ## Technical Description
+
+### Blocks
+
+### Data model
+
+![Alt text](datamodel1.jpg)
+
+### API coverage
+
+![Alt text](test-api.png)
+
+![Alt text](coverage.png)
